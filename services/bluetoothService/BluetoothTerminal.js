@@ -104,6 +104,7 @@ export default class BluetoothTerminal {
    *                   be started or rejected if something went wrong
    */
   connect() {
+    // Return rejected promise immediately if there is already connected device.
     console.log(this._connectToDevice(this._device));
     return this._connectToDevice(this._device);
   }
