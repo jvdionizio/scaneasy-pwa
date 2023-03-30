@@ -3,14 +3,12 @@ import { useEffect, useState } from "react"
 
 export default function Home() {
 
-  const [deviceLogs, setDeviceLogs] = useState('')
+  const [deviceLogs, setDeviceLogs] = useState([])
 
   const [deviceName, setDeviceName] = useState('')
 
   useEffect(() => {
-    console.log(
-      Object.values(deviceLogs)
-    )
+
   }, [deviceLogs])
 
 
@@ -22,19 +20,6 @@ export default function Home() {
     disconnectService()
   }
 
-/* // Helpers.
-const defaultDeviceName = 'Terminal';
-const terminalAutoScrollingLimit = terminalContainer.offsetHeight / 2;
-let isTerminalAutoScrolling = true;
-
-const scrollElement = (element) => {
-  const scrollTop = element.scrollHeight - element.offsetHeight;
-
-  if (scrollTop > 0) {
-    element.scrollTop = scrollTop;
-  }
-}; */
-
   // Obtain configured instance.
   const terminal = new BluetoothTerminal();
 
@@ -43,15 +28,15 @@ const scrollElement = (element) => {
   terminal._log = function(...messages) {
     // We can't use `super._log()` here.
     messages.forEach((message) => {
-      setDeviceLogs(message);
+      setDeviceLogs( [...deviceLogs, message] );
     });
   };
 
   // Implement own send function to log outcoming data to the terminal.
   const send = (data) => {
     terminal.send(data).
-        then(() => setDeviceLogs(data)).
-        catch((error) => setDeviceLogs(error));
+        then(() => setDeviceLogs( [...deviceLogs, data] )).
+        catch((error) => setDeviceLogs( [...deviceLogs, error] ));
   };
 
 
@@ -64,7 +49,7 @@ const scrollElement = (element) => {
   };
 
   const disconnectService = () => {
-  terminal.disconnect();
+    terminal.disconnect();
   };
 
   return (
@@ -89,8 +74,13 @@ const scrollElement = (element) => {
       <h2 className="text-blue-700 font-bold text-lg">
         {deviceName}
       </h2>
-      <div className='border border-gray-300 rounded-md p-2'>
+      <div className='flex flex-col gap-4 border border-gray-300 rounded-md p-2'>
           <p>Log</p>
+          <div className='border border-gray-300 rounded-md p-2'>
+            {deviceLogs.map((log, index) => (
+              <p key={index}>{log.message}</p>
+            ))}
+          </div>
       </div>
     </>
   )
