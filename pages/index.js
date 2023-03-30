@@ -5,8 +5,12 @@ export default function Home() {
 
   const [deviceLogs, setDeviceLogs] = useState('')
 
+  const [deviceName, setDeviceName] = useState('')
+
   useEffect(() => {
-    console.log(deviceLogs)
+    console.log(
+      Object.values(deviceLogs)
+    )
   }, [deviceLogs])
 
 
@@ -39,7 +43,6 @@ const scrollElement = (element) => {
   terminal._log = function(...messages) {
     // We can't use `super._log()` here.
     messages.forEach((message) => {
-      console.log("message", message);
       setDeviceLogs(message);
     });
   };
@@ -48,7 +51,7 @@ const scrollElement = (element) => {
   const send = (data) => {
     terminal.send(data).
         then(() => setDeviceLogs(data)).
-        catch((error) => setDeviceLogs(data));
+        catch((error) => setDeviceLogs(error));
   };
 
 
@@ -56,8 +59,7 @@ const scrollElement = (element) => {
   const connectService = () => {
   terminal.connect().
       then(() => {
-        deviceNameLabel.textContent = terminal.getDeviceName() ?
-            terminal.getDeviceName() : defaultDeviceName;
+        terminal.getDeviceName() ? setDeviceName(terminal.getDeviceName()) : setDeviceName('BLE Device');
       });
   };
 
@@ -67,7 +69,7 @@ const scrollElement = (element) => {
 
   return (
     <>
-      <div className='text-red-500 font-bold'>Hello tailwindcss</div>
+      <div className='text-red-500 font-bold'>Hello Bluetooth</div>
       <div
         className='flex items-center gap-4 py-2'
       >
@@ -84,6 +86,9 @@ const scrollElement = (element) => {
           Disconnect
         </button>
       </div>
+      <h2 className="text-blue-700 font-bold text-lg">
+        {deviceName}
+      </h2>
       <div className='border border-gray-300 rounded-md p-2'>
           <p>Log</p>
       </div>
