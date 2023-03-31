@@ -1,10 +1,3 @@
-// UI elements.
-/* const deviceNameLabel = document.getElementById('device-name');
-const disconnectButton = document.getElementById('disconnect');
-const terminalContainer = document.getElementById('terminal');
-const sendForm = document.getElementById('send-form');
-const inputField = document.getElementById('input'); */
-
 import BluetoothTerminal from "./BluetoothTerminal";
 
 /* // Helpers.
@@ -20,15 +13,7 @@ const scrollElement = (element) => {
   }
 }; */
 
-/* const logToTerminal = (message, type = '') => {
-  terminalContainer.insertAdjacentHTML('beforeend',
-      `<div${type && ` class="${type}"`}>${message}</div>`);
-
-  if (isTerminalAutoScrolling) {
-    scrollElement(terminalContainer);
-  }
-};
-*/
+export let logToTerminal = '';
 
 // Obtain configured instance.
 const terminal = new BluetoothTerminal();
@@ -38,9 +23,19 @@ const terminal = new BluetoothTerminal();
 terminal._log = function(...messages) {
   // We can't use `super._log()` here.
   messages.forEach((message) => {
-    console.log(message); // eslint-disable-line no-console
+    console.log("message", message);
+    logToTerminal = message;
   });
 };
+
+// Implement own send function to log outcoming data to the terminal.
+const send = (data) => {
+  terminal.send(data).
+      then(() => logToTerminal = data).
+      catch((error) => logToTerminal = error);
+};
+
+
 // Bind event listeners to the UI elements.
 export const connectService = () => {
   terminal.connect().
@@ -50,25 +45,6 @@ export const connectService = () => {
       });
 };
 
-/*/disconnectButton.addEventListener('click', () => {
+export const disconnectService = () => {
   terminal.disconnect();
-  deviceNameLabel.textContent = defaultDeviceName;
-});
-
-sendForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  send(inputField.value);
-
-  inputField.value = '';
-  inputField.focus();
-});
-
-// Switch terminal auto scrolling if it scrolls out of bottom.
-terminalContainer.addEventListener('scroll', () => {
-  const scrollTopOffset = terminalContainer.scrollHeight -
-      terminalContainer.offsetHeight - terminalAutoScrollingLimit;
-
-  isTerminalAutoScrolling = (scrollTopOffset < terminalContainer.scrollTop);
-});
- */
+};
