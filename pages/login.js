@@ -13,7 +13,7 @@ import Link from 'next/link'
 
 export default function Login() {
   return(
-    <div className='w-screen h-screen flex flex-col items-center px-6 gap-32 py-6'>
+    <div className='w-screen h-screen flex flex-col items-center px-8 gap-32 py-6'>
       <Head>
         <title>Scan Easy - Login</title>
       </Head>
