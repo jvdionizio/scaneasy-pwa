@@ -1,87 +1,58 @@
-import BluetoothTerminal from "@/services/bluetoothService/BluetoothTerminal"
-import { useEffect, useState } from "react"
+import Image from 'next/image'
+import Link from 'next/link'
+import Head from 'next/head';
 
-export default function Home() {
+import IconLogo from '../public/IconLogo.svg'
+import loginImage from '../public/loginImage.png'
+import Button from '@/components/styles/Button'
 
-  const [deviceLogs, setDeviceLogs] = useState([])
-
-  const [deviceName, setDeviceName] = useState('')
-
-  useEffect(() => {
-
-  }, [deviceLogs])
-
-
-  const connect = () => {
-    connectService()
-  }
-
-  const disconnect = () => {
-    disconnectService()
-  }
-
-  // Obtain configured instance.
-  const terminal = new BluetoothTerminal();
-
-
-  // Override default log method to output messages to the terminal and console.
-  terminal._log = function(...messages) {
-    // We can't use `super._log()` here.
-    messages.forEach((message) => {
-      setDeviceLogs( [...deviceLogs, message] );
-    });
-  };
-
-  // Implement own send function to log outcoming data to the terminal.
-  const send = (data) => {
-    terminal.send(data).
-        then(() => setDeviceLogs( [...deviceLogs, data] )).
-        catch((error) => setDeviceLogs( [...deviceLogs, error] ));
-  };
-
-
-  // Bind event listeners to the UI elements.
-  const connectService = () => {
-  terminal.connect().
-      then(() => {
-        terminal.getDeviceName() ? setDeviceName(terminal.getDeviceName()) : setDeviceName('BLE Device');
-      });
-  };
-
-  const disconnectService = () => {
-    terminal.disconnect();
-  };
-
-  return (
-    <>
-      <div className='text-red-500 font-bold'>Hello Bluetooth</div>
+export default function Welcome() {
+  return(
+    <div className='w-screen h-screen flex flex-col items-center justify-center gap-9'>
+      <Head>
+        <title>Scan Easy - Bem vindo</title>
+      </Head>
       <div
-        className='flex items-center gap-4 py-2'
+        className='w-full flex flex-col items-center justify-center gap-20'
       >
-        <button
-          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
-          onClick={connect}
-        >
-          Connect
-        </button>
-        <button
-          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
-          onClick={disconnect}
-        >
-          Disconnect
-        </button>
+        <Image
+          className='w-1/5'
+          src={IconLogo}
+          alt="Logo"
+        />
+        <Image
+          className='self-end'
+          src={loginImage}
+          alt="foto de um carrinho com várias compras dentro"
+        />
       </div>
-      <h2 className="text-blue-700 font-bold text-lg">
-        {deviceName}
-      </h2>
-      <div className='flex flex-col gap-4 border border-gray-300 rounded-md p-2'>
-          <p>Log</p>
-          <div className='border border-gray-300 rounded-md p-2'>
-            {deviceLogs.map((log, index) => (
-              <p key={index}>{log.message}</p>
-            ))}
-          </div>
+      <div
+        className='w-full flex flex-col items-center justify-center px-11 gap-3'
+      >
+        <Button
+          textSize='lg'
+        >
+          <button>
+            <Link href='/signup'>
+              Criar uma conta
+            </Link>
+          </button>
+        </Button>
+        <div
+          className='w-full flex items-center justify-center px-8'
+        >  
+          <Button
+            bgColor='green'
+            textSize='sm'
+          >
+            <button>
+              <Link href='/login'>
+                Já tenho uma conta
+              </Link>
+            </button>
+          </Button>
+        </div>
       </div>
-    </>
+    </div>
   )
 }

@@ -7,8 +7,6 @@ const poppins = Poppins({
   variable: '--font-poppins',
 })
 
-console.log(poppins) // --font-poppins
-
 export default function App({ Component, pageProps }) {
   return (
     <main className={`${poppins.variable} font-sans`}>
