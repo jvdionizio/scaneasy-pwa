@@ -8,12 +8,12 @@ import Button from '@/components/styles/Button'
 
 export default function Welcome() {
   return(
-    <div className='w-screen h-screen flex flex-col items-center justify-center gap-9'>
+    <div className='w-screen h-screen flex flex-col items-center justify-center gap-9 py-4'>
       <Head>
         <title>Scan Easy - Bem vindo</title>
       </Head>
       <div
-        className='w-full flex flex-col items-center justify-center gap-20'
+        className='w-full flex flex-col items-center justify-center gap-16'
       >
         <Image
           className='w-1/5'
