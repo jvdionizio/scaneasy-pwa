@@ -9,7 +9,7 @@ export default function handler(req, res) {
           "nome": "Arroz",
           "preço": 5.99,
           "descrição": "Arroz tipo 1, pacote com 1kg",
-          "image": "../public/products/arroz.webp",
+          "image": "/products/arroz.webp",
           "sale": Math.floor(Math.random() * (max - min) + min),
           "tabela nutricional": {
             "valor energético": "150 kcal",
@@ -20,24 +20,10 @@ export default function handler(req, res) {
           "categoria": "alimentos"
         },
         {
-          "nome": "Feijão",
-          "preço": 4.99,
-          "descrição": "Feijão carioca, pacote com 1kg",
-          "image": "../public/products/feijao.webp",
-          "sale": Math.floor(Math.random() * (max - min) + min),
-          "tabela nutricional": {
-            "valor energético": "100 kcal",
-            "proteínas": "5g",
-            "carboidratos": "20g",
-            "gorduras totais": "0,5g"
-          },
-          "categoria": "alimentos"
-        },
-        {
           "nome": "Sabão em pó",
           "preço": 14.99,
           "descrição": "Sabão em pó Tixan Ypê, pacote com 2kg",
-          "image": "../public/products/sabao_em_po.jpg",
+          "image": "/products/sabao_em_po.jpg",
           "sale": Math.floor(Math.random() * (max - min) + min),
           "categoria": "limpeza"
         },
@@ -45,7 +31,7 @@ export default function handler(req, res) {
           "nome": "Leite em pó",
           "preço": 10.99,
           "descrição": "Leite em pó integral, lata com 400g",
-          "image": "../public/products/leite_em_po.jpg",
+          "image": "/products/leite_em_po.jpg",
           "sale": Math.floor(Math.random() * (max - min) + min),
           "tabela nutricional": {
             "valor energético": "350 kcal",
@@ -59,7 +45,7 @@ export default function handler(req, res) {
           "nome": "Biscoito recheado",
           "preço": 2.99,
           "descrição": "Biscoito recheado sabor chocolate, pacote com 150g",
-          "image": "../public/products/biscoito_recheado.webp",
+          "image": "/products/biscoito_recheado.webp",
           "sale": Math.floor(Math.random() * (max - min) + min),
           "tabela nutricional": {
             "valor energético": "200 kcal",
@@ -70,10 +56,24 @@ export default function handler(req, res) {
           "categoria": "alimentos"
         },
         {
+          "nome": "Feijão",
+          "preço": 4.99,
+          "descrição": "Feijão carioca, pacote com 1kg",
+          "image": "/products/feijao.webp",
+          "sale": Math.floor(Math.random() * (max - min) + min),
+          "tabela nutricional": {
+            "valor energético": "100 kcal",
+            "proteínas": "5g",
+            "carboidratos": "20g",
+            "gorduras totais": "0,5g"
+          },
+          "categoria": "alimentos"
+        },
+        {
           "nome": "Detergente líquido",
           "preço": 3.49,
           "descrição": "Detergente líquido Ypê, 500ml",
-          "image": "../public/products/detergente.webp",
+          "image": "/products/detergente.webp",
           "sale": Math.floor(Math.random() * (max - min) + min),
           "categoria": "limpeza"
         },
@@ -81,7 +81,7 @@ export default function handler(req, res) {
           "nome": "Café",
           "preço": 7.99,
           "descrição": "Café torrado e moído, pacote com 250g",
-          "image": "../public/products/cafe.webp",
+          "image": "/products/cafe.webp",
           "sale": Math.floor(Math.random() * (max - min) + min),
           "categoria": "alimentos"
         },
@@ -89,7 +89,7 @@ export default function handler(req, res) {
           "nome": "Sabonete",
           "preço": 1.49,
           "descrição": "Sabonete em barra, pacote com 4 unidades",
-          "image": "../public/products/sabonete.webp",
+          "image": "/products/sabonete.webp",
           "sale": Math.floor(Math.random() * (max - min) + min),
           "categoria": "higiene pessoal"
         },
@@ -97,7 +97,7 @@ export default function handler(req, res) {
           "nome": "Água sanitária",
           "preço": 2.99,
           "descrição": "Água sanitária Ypê, 1L",
-          "image": "../public/products/agua_sanitaria.png",
+          "image": "/products/agua_sanitaria.png",
           "sale": Math.floor(Math.random() * (max - min) + min),
           "categoria": "limpeza"
         },
@@ -105,7 +105,7 @@ export default function handler(req, res) {
           "nome": "Papel higiênico",
           "preço": 11.99,
           "descrição": "Papel higiênico folha dupla, pacote com 12 rolos",
-          "image": "../public/products/papel_higienico.png",
+          "image": "/products/papel_higienico.png",
           "sale": Math.floor(Math.random() * (max - min) + min),
           "categoria": "higiene pessoal"
         }

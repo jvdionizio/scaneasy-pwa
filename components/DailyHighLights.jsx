@@ -4,9 +4,11 @@ import "swiper/css";
 import "swiper/css/free-mode";
 
 import Heading from "./styles/Heading";
+import ProductCard from './ProductCard';
 
 export default function DailyHighLights({data}) {
-  console.log(data);
+  const { produtos } = data;
+  console.log(produtos);
 
   return(
     <div
@@ -22,30 +24,19 @@ export default function DailyHighLights({data}) {
         DESTAQUES DO DIA
       </Heading>
       <Swiper
-        spaceBetween={50}
+        spaceBetween={48}
         slidesPerView={2.5}
         freeMode={true}
         modules={[A11y, FreeMode]}
       >
-        <SwiperSlide>
-          <div>
-            <h1>Slide 1</h1>
-          </div>
-        </SwiperSlide>
+        {produtos.map((produto) => (
+          <SwiperSlide
+            key={produto.nome}
+          >
+            <ProductCard product={produto} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   )
-}
-
-export async function getStaticProps() {
-
-  const res = await fetch('http://localhost:3000/api/products')
-  const data = await res.json()
-  console.log(data);
-
-  return {
-    props: {
-      data,
-    }, // will be passed to the page component as props
-  }
 }
