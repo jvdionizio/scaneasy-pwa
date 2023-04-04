@@ -4,7 +4,14 @@ import Text from "./styles/Text";
 export default function ProductCard({product}) {
   return (
     <div
-      className=""
+      className="
+        flex
+        flex-col
+        items-center
+        justify-center
+        w-full
+        h-max-
+      "
     >
       <Image
         src={product.image}
@@ -12,7 +19,7 @@ export default function ProductCard({product}) {
         width={200}
         height={200}
         className="
-          w-32
+          max-w-32
         "
       />
       <Text>

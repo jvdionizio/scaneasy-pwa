@@ -2,6 +2,7 @@ import DailyHighLights from "@/components/DailyHighLights";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Head from "next/head";
+import { productsObj } from "@/public/static/products";
 
 export default function Home({data}) {
   return(
@@ -16,15 +17,21 @@ export default function Home({data}) {
   )
 }
 
-export async function getStaticProps() {
+export function getStaticProps() {
 
-  const res = await fetch('http://localhost:3000/api/products')
-  const data = await res.json()
-  
-  return {
-    props: {
-      data,
-    }, // will be passed to the page component as props
-    revalidate: 60,
-  }
+  return fetch('http://localhost:3000/api/products')
+  .then((res) => res.json()).then((data) => {
+    return {
+      props: {
+        data
+      }
+    }
+  })
+  .catch(() => {
+    return {
+      props: {
+        data: productsObj
+      }
+    }
+  })
 }

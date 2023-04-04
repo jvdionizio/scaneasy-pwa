@@ -8,7 +8,6 @@ import ProductCard from './ProductCard';
 
 export default function DailyHighLights({data}) {
   const { produtos } = data;
-  console.log(produtos);
 
   return(
     <div
