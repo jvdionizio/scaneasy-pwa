@@ -64,14 +64,16 @@ export default function Login() {
                 </Text>
               </div>
             </div>
-            <Button
-              bgColor='black'
-              textSize='xs'
-            >
-              <button>
-                Continuar
-              </button>
-            </Button>
+            <Link href="/home" className='w-full'>
+              <Button
+                bgColor='black'
+                textSize='xs'
+              >
+                <button>
+                  Continuar
+                </button>
+              </Button>
+            </Link>
           </div>
           <div
             className='w-full flex flex-col items-center justify-center px-9 gap-3'
