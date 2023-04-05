@@ -30,6 +30,7 @@ export default function Text({
           'text-xs': size === 'sm',
           'text-sm': size === 'md',
           'text-md': size === 'lg',
+          'text-2md': size === 'xl',
         },
         {
           'line-through': decoration === 'risco',

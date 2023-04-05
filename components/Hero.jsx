@@ -43,7 +43,7 @@ export default function Hero(){
           </div>
         </SwiperSlide>
         <SwiperSlide>
-                    <div
+          <div
             className='
               w-full
               h-full

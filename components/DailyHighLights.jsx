@@ -7,13 +7,15 @@ import Heading from "./styles/Heading";
 import ProductCard from './ProductCard';
 
 export default function DailyHighLights({data}) {
-  const { produtos } = data;
+  const { products } = data;
 
   return(
     <div
       className='
         w-full
         h-48
+        mt-6
+        pl-6
       '
     >
       <Heading
@@ -23,16 +25,15 @@ export default function DailyHighLights({data}) {
         DESTAQUES DO DIA
       </Heading>
       <Swiper
-        spaceBetween={48}
+        spaceBetween={20}
         slidesPerView={2.5}
-        freeMode={true}
         modules={[A11y, FreeMode]}
       >
-        {produtos.map((produto) => (
+        {products.map((product, index) => (
           <SwiperSlide
-            key={produto.nome}
+            key={product.name}
           >
-            <ProductCard product={produto} />
+            <ProductCard product={product} index={index} />
           </SwiperSlide>
         ))}
       </Swiper>

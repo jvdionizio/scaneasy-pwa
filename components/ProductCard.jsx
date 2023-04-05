@@ -1,30 +1,81 @@
 import Image from "next/image";
+import { FaPlus } from "react-icons/fa";
+import AddButton from "./AddButton";
 import Text from "./styles/Text";
 
-export default function ProductCard({product}) {
+export default function ProductCard({product, index}) {
+  console.log(index);
   return (
     <div
-      className="
-        flex
-        flex-col
-        items-center
-        justify-center
-        w-full
-        h-max-
-      "
+      className={
+        `
+          flex
+          flex-col
+          justify-center
+          w-full
+          m-4
+          ${index = 9 && 'mr-10'}
+        `
+      }
+
     >
-      <Image
-        src={product.image}
-        alt={product.nome}
-        width={200}
-        height={200}
+      <div
         className="
-          max-w-32
+          flex
+          justify-center
+          w-full
+          p-4
+          rounded-3xl
+          ring-2
+          ring-blue-700
         "
-      />
-      <Text>
-        {product.descrição}
-      </Text>
+      >
+        <Image
+          src={product.image}
+          alt={product.name}
+          width={200}
+          height={200}
+          className="
+            w-28
+            h-28
+            object-cover
+          "
+        />
+      </div>
+      <div
+        className="
+          flex
+          justify-center
+          items-center
+        "
+      >
+        <div
+          className="
+            flex
+            flex-col
+            justify-center
+            w-3/4
+          "
+        >
+          <Text
+            size="xl"
+          >
+            {`R$ ${product.price}`}
+          </Text>
+          <Text
+            textColor="blue"
+          >
+            {product.name}
+          </Text>
+        </div>
+        <div
+          className="
+            my-5
+          "
+        >
+          <AddButton />
+        </div>
+      </div>
     </div>
   );
 }

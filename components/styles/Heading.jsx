@@ -21,6 +21,7 @@ export default function Heading({
         {
           'font-bold': weight === 'bold',
           'font-semibold': weight === 'semibold',
+          'font-medium': weight === 'medium',
         },
         {
           'text-2md': size === 'sm',

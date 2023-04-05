@@ -44,6 +44,7 @@ export default function Login() {
               <TextInputRoot>
                 <TextInputInput
                   placeholder='Email'
+                  type='text'
                 />
               </TextInputRoot>
               <div

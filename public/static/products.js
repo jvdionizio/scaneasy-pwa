@@ -2,110 +2,110 @@ const min = 2;
 const max = 25;
 
 export const productsObj = {
-  "produtos": [
+  products: [
     {
-      "nome": "Arroz",
-      "preço": 5.99,
-      "descrição": "Arroz tipo 1, pacote com 1kg",
-      "image": "/products/arroz.webp",
-      "sale": Math.floor(Math.random() * (max - min) + min),
-      "tabela nutricional": {
-        "valor energético": "150 kcal",
-        "proteínas": "3g",
-        "carboidratos": "30g",
-        "gorduras totais": "1g"
+      name: "Arroz",
+      price: 5.99,
+      description: "Arroz tipo 1, pacote com 1kg",
+      image: "/products/arroz.webp",
+      sale: Math.floor(Math.random() * (max - min) + min),
+      nutritionalTable: {
+        energyValue: "150 kcal",
+        protein: "3g",
+        carbs: "30g",
+        totalFat: "1g"
       },
-      "categoria": "alimentos"
+      categories: "alimentos"
     },
     {
-      "nome": "Sabão em pó",
-      "preço": 14.99,
-      "descrição": "Sabão em pó Tixan Ypê, pacote com 2kg",
-      "image": "/products/sabao_em_po.jpg",
-      "sale": Math.floor(Math.random() * (max - min) + min),
-      "categoria": "limpeza"
+      name: "Sabão em pó",
+      price: 14.99,
+      description: "Sabão em pó Tixan Ypê, pacote com 2kg",
+      image: "/products/sabao_em_po.jpg",
+      sale: Math.floor(Math.random() * (max - min) + min),
+      categories: "limpeza"
     },
     {
-      "nome": "Leite em pó",
-      "preço": 10.99,
-      "descrição": "Leite em pó integral, lata com 400g",
-      "image": "/products/leite_em_po.jpg",
-      "sale": Math.floor(Math.random() * (max - min) + min),
-      "tabela nutricional": {
-        "valor energético": "350 kcal",
-        "proteínas": "15g",
-        "carboidratos": "25g",
-        "gorduras totais": "20g"
+      name: "Leite em pó",
+      price: 10.99,
+      description: "Leite em pó integral, lata com 400g",
+      image: "/products/leite_em_po.jpg",
+      sale: Math.floor(Math.random() * (max - min) + min),
+      nutritionalTable: {
+        energyValue: "350 kcal",
+        protein: "15g",
+        carbs: "25g",
+        totalFat: "20g"
       },
-      "categoria": "alimentos"
+      categories: "alimentos"
     },
     {
-      "nome": "Biscoito recheado",
-      "preço": 2.99,
-      "descrição": "Biscoito recheado sabor chocolate, pacote com 150g",
-      "image": "/products/biscoito_recheado.webp",
-      "sale": Math.floor(Math.random() * (max - min) + min),
-      "tabela nutricional": {
-        "valor energético": "200 kcal",
-        "proteínas": "2g",
-        "carboidratos": "30g",
-        "gorduras totais": "8g"
+      name: "Biscoito recheado",
+      price: 2.99,
+      description: "Biscoito recheado sabor chocolate, pacote com 150g",
+      image: "/products/biscoito_recheado.webp",
+      sale: Math.floor(Math.random() * (max - min) + min),
+      nutritionalTable: {
+        energyValue: "200 kcal",
+        protein: "2g",
+        carbs: "30g",
+        totalFat: "8g"
       },
-      "categoria": "alimentos"
+      categories: "alimentos"
     },
     {
-      "nome": "Feijão",
-      "preço": 4.99,
-      "descrição": "Feijão carioca, pacote com 1kg",
-      "image": "/products/feijao.webp",
-      "sale": Math.floor(Math.random() * (max - min) + min),
-      "tabela nutricional": {
-        "valor energético": "100 kcal",
-        "proteínas": "5g",
-        "carboidratos": "20g",
-        "gorduras totais": "0,5g"
+      name: "Feijão",
+      price: 4.99,
+      description: "Feijão carioca, pacote com 1kg",
+      image: "/products/feijao.webp",
+      sale: Math.floor(Math.random() * (max - min) + min),
+      nutritionalTable: {
+        energyValue: "100 kcal",
+        protein: "5g",
+        carbs: "20g",
+        totalFat: "0,5g"
       },
-      "categoria": "alimentos"
+      categories: "alimentos"
     },
     {
-      "nome": "Detergente líquido",
-      "preço": 3.49,
-      "descrição": "Detergente líquido Ypê, 500ml",
-      "image": "/products/detergente.webp",
-      "sale": Math.floor(Math.random() * (max - min) + min),
-      "categoria": "limpeza"
+      name: "Detergente líquido",
+      price: 3.49,
+      description: "Detergente líquido Ypê, 500ml",
+      image: "/products/detergente.webp",
+      sale: Math.floor(Math.random() * (max - min) + min),
+      categories: "limpeza"
     },
     {
-      "nome": "Café",
-      "preço": 7.99,
-      "descrição": "Café torrado e moído, pacote com 250g",
-      "image": "/products/cafe.webp",
-      "sale": Math.floor(Math.random() * (max - min) + min),
-      "categoria": "alimentos"
+      name: "Café",
+      price: 7.99,
+      description: "Café torrado e moído, pacote com 250g",
+      image: "/products/cafe.webp",
+      sale: Math.floor(Math.random() * (max - min) + min),
+      categories: "alimentos"
     },
     {
-      "nome": "Sabonete",
-      "preço": 1.49,
-      "descrição": "Sabonete em barra, pacote com 4 unidades",
-      "image": "/products/sabonete.webp",
-      "sale": Math.floor(Math.random() * (max - min) + min),
-      "categoria": "higiene pessoal"
+      name: "Sabonete",
+      price: 1.49,
+      description: "Sabonete em barra, pacote com 4 unidades",
+      image: "/products/sabonete.webp",
+      sale: Math.floor(Math.random() * (max - min) + min),
+      categories: "higiene pessoal"
     },
     {
-      "nome": "Água sanitária",
-      "preço": 2.99,
-      "descrição": "Água sanitária Ypê, 1L",
-      "image": "/products/agua_sanitaria.png",
-      "sale": Math.floor(Math.random() * (max - min) + min),
-      "categoria": "limpeza"
+      name: "Água sanitária",
+      price: 2.99,
+      description: "Água sanitária Ypê, 1L",
+      image: "/products/agua_sanitaria.png",
+      sale: Math.floor(Math.random() * (max - min) + min),
+      categories: "limpeza"
     },
     {
-      "nome": "Papel higiênico",
-      "preço": 11.99,
-      "descrição": "Papel higiênico folha dupla, pacote com 12 rolos",
-      "image": "/products/papel_higienico.png",
-      "sale": Math.floor(Math.random() * (max - min) + min),
-      "categoria": "higiene pessoal"
+      name: "Papel higiênico",
+      price: 11.99,
+      description: "Papel higiênico folha dupla, pacote com 12 rolos",
+      image: "/products/papel_higienico.png",
+      sale: Math.floor(Math.random() * (max - min) + min),
+      categories: "higiene pessoal"
     }
   ]
 }
