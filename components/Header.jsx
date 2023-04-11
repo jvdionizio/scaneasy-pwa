@@ -1,8 +1,11 @@
 import Image from 'next/image'
 import IconLogo from '../public/IconLogo.svg'
 import { FaSearch, FaBars } from 'react-icons/fa'
+import Menu from './Menu'
+import { useState } from 'react'
 
 export default function Header(){
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <header className="bg-white">
       <div>
@@ -53,13 +56,18 @@ export default function Header(){
             '
           />
         </div>
-        <FaBars
-          className='
-            text-blue-700
-            w-9
-            h-9
-          '
-        />
+        <div
+          onClick={() => setIsOpen(true)}
+        >
+          <FaBars
+            className='
+              text-blue-700
+              w-9
+              h-9
+            '
+          />
+        </div>
+        <Menu Open={isOpen} />
       </div>
     </header>
   )

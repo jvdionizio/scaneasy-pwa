@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Slot } from '@radix-ui/react-slot';
 import { clsx } from 'clsx';
 
-function Button({ children, bgColor, textSize, width}, props) {
+function Button({ children, bgColor, textSize, width, textColor}, props) {
   return (
     <Slot
       className={ clsx(
@@ -17,7 +17,10 @@ function Button({ children, bgColor, textSize, width}, props) {
         'font-sans',
         'font-semibold',
         'tracking-tighter',
-        'text-white',
+        {
+          'text-white': textColor === 'white',
+          'text-blue-700': textColor === 'blue',
+        },
         {
           'w-full': width === 'full',
           'w-1/2': width === 'half',
@@ -30,12 +33,14 @@ function Button({ children, bgColor, textSize, width}, props) {
           'bg-gray-800': bgColor === 'black',
           'bg-blue-700': bgColor === 'blue',
           'bg-green-500': bgColor === 'green',
+          'bg-white' : bgColor === 'white',
         }, 
         'transition-colors',
         {
           'active:bg-gray-400': bgColor === 'black',
           'active:bg-blue-400': bgColor === 'blue',
           'active:bg-green-200': bgColor === 'green',
+          'active:bg-gray-200' : bgColor === 'white',
         },
         'hover:outline-none',
         { 
@@ -56,6 +61,7 @@ Button.defaultProps = {
   asChild: false,
   bgColor: 'blue',
   textSize: 'md',
+  textColor: 'white',
   width: 'full',
 };
 
@@ -64,6 +70,7 @@ Button.propTypes = {
   asChild: PropTypes.bool,
   bgColor: PropTypes.string,
   textSize: PropTypes.string,
+  textColor: PropTypes.string,
   width: PropTypes.string,
 };
 

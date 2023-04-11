@@ -1,4 +1,4 @@
-import DailyHighLights from "@/components/DailyHighLights";
+import SectionSwiper from "@/components/SectionSwiper";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Head from "next/head";
@@ -12,7 +12,14 @@ export default function Home({data}) {
       </Head>
       <Header/>
       <Hero />
-      <DailyHighLights data={data} />
+      <div>
+        <SectionSwiper data={data} type={"highlights"} />
+      </div>
+      <div
+        className='mt-8'
+      >
+        <SectionSwiper data={data} type={"categories"} />
+      </div>
     </div>
   )
 }

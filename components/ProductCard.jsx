@@ -4,7 +4,6 @@ import AddButton from "./AddButton";
 import Text from "./styles/Text";
 
 export default function ProductCard({product, index}) {
-  console.log(index);
   return (
     <div
       className={
@@ -13,7 +12,6 @@ export default function ProductCard({product, index}) {
           flex-col
           justify-center
           w-full
-          m-4
           ${index = 9 && 'mr-10'}
         `
       }
