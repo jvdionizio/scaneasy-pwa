@@ -23,7 +23,11 @@ export default function BluetoothPage() {
   // Obtain configured instance.
   const terminal = new BluetoothTerminal();
 
-
+  // Override `receive` method to log incoming data to the terminal.
+  terminal.receive = function(data) {
+    setDeviceLogs([...deviceLogs, data.message]);
+  };
+  
   // Override default log method to output messages to the terminal and console.
   terminal._log = function(...messages) {
     // We can't use `super._log()` here.
@@ -59,13 +63,13 @@ export default function BluetoothPage() {
         className='flex items-center gap-4 py-2'
       >
         <button
-          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+          className='bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
           onClick={connect}
         >
           Connect
         </button>
         <button
-          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+          className='bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
           onClick={disconnect}
         >
           Disconnect

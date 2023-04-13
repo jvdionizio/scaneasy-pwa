@@ -19,7 +19,7 @@ export default function ProductPage({data}) {
 
   return (
     <div className='w-screen h-screen flex flex-col py-4'>
-        <Head>
+      {/* <Head>
             <title></title>
         </Head>
 
@@ -70,7 +70,8 @@ export default function ProductPage({data}) {
                 </ div>
               )
             }
-          </div>
+          </div>*/
+      }
         </div>
   )
 }
