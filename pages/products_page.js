@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+/*import Header from "@/components/Header";
 import Icon from "@/components/styles/Icon";
 import Head from "next/head";
 import { FaArrowLeft } from 'react-icons/fa'
@@ -19,7 +19,7 @@ export default function ProductPage({data}) {
 
   return (
     <div className='w-screen h-screen flex flex-col py-4'>
-      {/* <Head>
+      { <Head>
             <title></title>
         </Head>
 
@@ -70,14 +70,14 @@ export default function ProductPage({data}) {
                 </ div>
               )
             }
-          </div>*/
+          </div>
       }
         </div>
   )
 }
 
 
-/*export function getStaticProps() {
+export function getStaticProps() {
 
   return fetch('http://localhost:3000/api/products')
   .then((res) => res.json()).then((data) => {
