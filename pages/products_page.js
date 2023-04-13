@@ -77,7 +77,7 @@ export default function ProductPage({data}) {
 }
 
 
-export function getStaticProps() {
+/*export function getStaticProps() {
 
   return fetch('http://localhost:3000/api/products')
   .then((res) => res.json()).then((data) => {
@@ -94,4 +94,4 @@ export function getStaticProps() {
       }
     }
   })
-}
+}*/
