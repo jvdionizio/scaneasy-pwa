@@ -25,7 +25,7 @@ export default function BluetoothPage() {
 
   // Override `receive` method to log incoming data to the terminal.
   terminal.receive = function(data) {
-    setDeviceLogs([...deviceLogs, data.message]);
+    setDeviceLogs([...deviceLogs, data]);
   };
   
   // Override default log method to output messages to the terminal and console.
