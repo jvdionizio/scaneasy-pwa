@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Head from "next/head";
 import { productsObj } from "@/public/static/products";
+import NavBar from "@/components/NavBar";
 
 export default function Home({data}) {
   return(
@@ -20,6 +21,7 @@ export default function Home({data}) {
       >
         <SectionSwiper data={data} type={"categories"} />
       </div>
+      <NavBar />
     </div>
   )
 }

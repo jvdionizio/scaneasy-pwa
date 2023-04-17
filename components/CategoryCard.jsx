@@ -21,10 +21,10 @@ export default function CategoryCard({category, index}) {
         width={200}
         height={200}
         className='
-          h-3/4
+          h-3/5
           object-contain
           p-4
-          rounded-2xl
+          rounded-3xl
           border-4
         '
       />
