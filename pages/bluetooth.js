@@ -124,6 +124,7 @@ export default function BluetoothPage() {
   function log(data, type = '') {
     //terminalContainer.insertAdjacentHTML('beforeend',
     //    '<div' + (type ? ' class="' + type + '"' : '') + '>' + data + '</div>');
+    console.log(data)
     setDeviceLogs([...deviceLogs, data])
   }
 
