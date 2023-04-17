@@ -67,7 +67,7 @@ export default function Header(){
             '
           />
         </div>
-        <Menu Open={isOpen} />
+        <Menu Open={isOpen} setOpen={setIsOpen} />
       </div>
     </header>
   )

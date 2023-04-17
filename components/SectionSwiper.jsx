@@ -56,7 +56,9 @@ export default function SectionSwiper({data, type}) {
         {type == 'categories' ? 'CATEGORIAS' : 'DESTAQUES DO DIA'}
       </Heading>
       <Swiper
-        spaceBetween={30}
+        spaceBetween={  
+          type == 'highlights' ? 20 : 50
+        }
         slidesPerView={
           type == 'highlights' ? 2.5 : 3.5
         }

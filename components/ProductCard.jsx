@@ -12,6 +12,7 @@ export default function ProductCard({product, index}) {
           flex-col
           justify-center
           w-full
+          m-4
           ${index = 9 && 'mr-10'}
         `
       }

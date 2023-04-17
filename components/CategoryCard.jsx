@@ -11,8 +11,8 @@ export default function CategoryCard({category, index}) {
         flex-1
         justify-center
         items-center
-        w-32
-        h-32
+        w-28
+        h-44
       '
     >
       <Image
@@ -23,6 +23,9 @@ export default function CategoryCard({category, index}) {
         className='
           h-3/4
           object-contain
+          p-4
+          rounded-2xl
+          border-4
         '
       />
       <Text

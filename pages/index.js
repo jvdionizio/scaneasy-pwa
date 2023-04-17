@@ -5,6 +5,7 @@ import Head from 'next/head';
 import IconLogo from '../public/IconLogo.svg'
 import loginImage from '../public/loginImage.png'
 import Button from '@/components/styles/Button'
+import NavMenu from '@/components/NavMenu';
 
 export default function Welcome() {
   return(
@@ -53,6 +54,7 @@ export default function Welcome() {
           </Button>
         </div>
       </div>
+      <NavMenu />
     </div>
   )
 }
