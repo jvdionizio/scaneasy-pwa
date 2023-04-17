@@ -228,7 +228,7 @@ export default function BluetoothPage() {
           <p>Received Data</p>
           <div className='border border-gray-300 rounded-md p-2'>
             {receivedData.map((log, index) => (
-              <p key={index}>{log.message}</p>
+              <p key={index}>{log}</p>
             ))}
           </div>
       </div>
