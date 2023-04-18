@@ -1,6 +1,6 @@
 import { StoreContext } from "@/context/context";
 import { useContext, useEffect, useState } from "react";
-import { FaPlus, FaPlusCircle } from "react-icons/fa";
+import { FaCheckCircle, FaPlus, FaPlusCircle } from "react-icons/fa";
 
 export default function AddButton({index}) {
   const [clicked, setClicked] = useState(false);
@@ -14,10 +14,8 @@ export default function AddButton({index}) {
   }
 
   useEffect(() => {
-    clicked && setTimeout(() => {
-      setClicked(false)
-    }, 200)
-  }, [clicked])
+    list && list[index].quantity > 0 && setClicked(true)
+  }, [list])
 
   return(
     <div
@@ -40,9 +38,20 @@ export default function AddButton({index}) {
     >
       {
         clicked ? (
-          <FaPlusCircle />
+          <FaCheckCircle
+            className="
+              text-green-500
+              w-5
+              h-5
+            "
+          />
         ) : (
-          <FaPlus />
+          <FaPlus
+            className="
+              w-5
+              h-5
+            "
+          />
         )
       }
     </div>
