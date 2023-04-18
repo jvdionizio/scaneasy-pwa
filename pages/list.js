@@ -5,8 +5,10 @@ import Text from "@/components/styles/Text";
 import { StoreContext } from "@/context/context";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+import { Minus, Plus, PlusCircle } from "phosphor-react";
 import React, {useContext, useEffect, useState} from "react";
-import { FaChevronDown, FaMinus, FaPlus, FaRegTrashAlt } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp, FaMinus, FaPlus, FaRegTrashAlt } from "react-icons/fa";
 
 export default function List() {
   const {list} = useContext(StoreContext);
@@ -68,7 +70,16 @@ export default function List() {
                       flex
                       justify-between
                       items-center
+                      transition-all
+                      duration-500
+                      mt-6
                     "
+                    onClick={() => {
+                      const element = document.getElementById(`category-${index}`);
+                      const arrows = document.getElementById(`arrows-${index}`);
+                      element.classList.toggle('hidden');
+                      arrows.classList.toggle('rotate-180');
+                    }}
                   >                  
                     <Heading
                       asChild
@@ -85,12 +96,29 @@ export default function List() {
                         w-6
                         h-6
                         text-blue-700
+                        transition-all
+                        duration-500
                       "
+                      id={`arrows-${index}`}
                     />
                   </div>
-                  <div>
+                  <div
+                    className="
+                      flex
+                      flex-col
+                      gap-4
+                      my-4
+                      transition-all
+                      duration-500
+                    "
+                    id={`category-${index}`}
+                  >
                     {localList && localList.map((product, index) => {
                       if(product.category === category) {
+                        product.quantity === 0 && setLocalList([
+                          ...localList.slice(0, index),
+                          ...localList.slice(index + 1)
+                        ])
                         return(
                           <div
                             key={index}
@@ -110,12 +138,24 @@ export default function List() {
                               '
                               src={product.image}
                               alt={product.name}
+                              width={100}
+                              height={100}
                             />
-                            <div>
-                              <Text>
+                            <div
+                              className="
+                                flex
+                                flex-col
+                                w-2/5
+                              "
+                            >
+                              <Text
+                                size="xl"
+                              >
                                 {product.name}
                               </Text>
-                              <Text>
+                              <Text
+                                size="sm"
+                              >
                                 {product.measurement}
                               </Text>
                             </div>
@@ -127,24 +167,36 @@ export default function List() {
                                 border-2
                                 border-blue-700
                                 rounded-full
+                                p-1
                               "
                             >
-                              <FaMinus
+                              <Minus
                                 className="
-                                  w-6
-                                  h-6
+                                  w-4
+                                  h-4
                                   text-blue-700
                                 "
+                                onClick={() => {
+                                  if(product.quantity > 0) {
+                                    product.quantity -= 1;
+                                    setLocalList([...localList]);
+                                  }
+                                }}
                               />
                               <Text>
                                 {product.quantity}
                               </Text>
-                              <FaPlus
+                              <Plus
                                 className="
-                                  w-6
-                                  h-6
+                                  w-4
+                                  h-4
                                   text-blue-700
+                                  cursor-pointer
                                 "
+                                onClick={() => {
+                                  product.quantity += 1;
+                                  setLocalList([...localList]);
+                                }}
                               />
                             </div>
                             <FaRegTrashAlt
@@ -152,7 +204,12 @@ export default function List() {
                                 w-6
                                 h-6
                                 text-blue-700
+                                cursor-pointer
                               "
+                              onClick={() => {
+                                product.quantity = 0;
+                                setLocalList([...localList]);
+                              }}
                             />
                           </div>
                         )
@@ -163,6 +220,27 @@ export default function List() {
               )
             }
           )}
+          <div
+            className="
+              mb-24
+              w-full
+              flex
+              justify-center
+              items-center
+            "
+          >
+            <Link
+              href="/home"
+            >
+              <PlusCircle
+                className="
+                  w-16
+                  h-16
+                  text-blue-700
+                "
+              />
+            </Link>
+          </div>
         </div>
       </div>
       <div

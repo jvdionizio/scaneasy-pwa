@@ -75,7 +75,7 @@ export default function handler(req, res) {
           measurement: "1kg"
         },
         {
-          name: "Detergente líquido",
+          name: "Detergente",
           price: 3.49,
           description: "Detergente líquido Ypê, 500ml",
           image: "/products/detergente.webp",

@@ -65,14 +65,18 @@ export default function SignUp() {
                 />
               </TextInputRoot>
             </div>
-            <Button
-              bgColor='black'
-              textSize='xs'
+            <Link
+              href='/home'
             >
-              <button>
-                Continuar
-              </button>
-            </Button>
+              <Button
+                bgColor='black'
+                textSize='xs'
+              >
+                <button>
+                  Continuar
+                </button>
+              </Button>
+            </Link>
           </div>
           <div
             className='w-full flex flex-col items-center justify-center px-9 gap-3'
