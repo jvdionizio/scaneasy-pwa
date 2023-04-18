@@ -5,7 +5,7 @@ import { FaPlus, FaPlusCircle } from "react-icons/fa";
 export default function AddButton({index}) {
   const [clicked, setClicked] = useState(false);
 
-  const { list, setList } = useContext(StoreContext)
+  const { list, setList, setShowAddOverlay } = useContext(StoreContext)
 
   const handleAdd = () => {
     const newList = [...list]
@@ -35,6 +35,7 @@ export default function AddButton({index}) {
       onClick={() => {
         handleAdd()
         setClicked(!clicked)
+        setShowAddOverlay(true)
       }}
     >
       {

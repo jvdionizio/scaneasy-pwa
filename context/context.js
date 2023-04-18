@@ -6,6 +6,8 @@ export const StoreContext = createContext(null);
 function StoreProvider({ children }) {
   const [list, setList] = useState();
 
+  const [showAddOverlay, setShowAddOverlay] = useState(false);
+
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
       .then((res) => res.json())
@@ -23,10 +25,16 @@ function StoreProvider({ children }) {
       });
   }, []);
 
+  useEffect(() => {
+    showAddOverlay && setTimeout(() => setShowAddOverlay(false), 2000);
+  }, [showAddOverlay]);
+
   return (
     <StoreContext.Provider
       value={{
         list,
+        showAddOverlay,
+        setShowAddOverlay,
         setList
       }}
     >

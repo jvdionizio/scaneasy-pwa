@@ -7,10 +7,7 @@ import { useState } from 'react'
 export default function Header(){
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <header className="bg-white">
-      <div>
-
-      </div>
+    <header className="bg-white z-20">
       <div
         className='
           flex

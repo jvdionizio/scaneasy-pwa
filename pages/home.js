@@ -5,10 +5,13 @@ import Head from "next/head";
 import { productsObj } from "@/public/static/products";
 import NavBar from "@/components/NavBar";
 import DraggableCard from "@/components/DraggableCard";
+import AddOverlay from "@/components/AddOverlay";
 
 export default function Home({data}) {
   return(
-    <div className='w-screen h-screen flex flex-col py-4'>
+    <div className='w-screen h-screen flex flex-col py-4
+      overflow-x-hidden overflow-clip
+    '>
       <Head>
         <title>Scan Easy - Bem vindo</title>
       </Head>
@@ -22,6 +25,7 @@ export default function Home({data}) {
       >
         <SectionSwiper data={data} type={"categories"} />
       </div>
+      <AddOverlay />
       <div
         className='
           fixed

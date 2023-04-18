@@ -35,6 +35,7 @@ export default function Heading({
           'text-gray-400': textColor === '400',
           'text-blue-700': textColor === 'blue',
           'text-white ': textColor === 'white',
+          'text-green-500': textColor === 'green',
         },
         {
           uppercase,

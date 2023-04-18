@@ -60,7 +60,7 @@ export default function List() {
         </Heading>
         <div>
           {
-            uniqueCategories && uniqueCategories.map((category, index) => {
+            uniqueCategories?.length > 0 ? uniqueCategories.map((category, index) => {
               return(
                 <div
                   key={index}
@@ -219,6 +219,30 @@ export default function List() {
                 </div>
               )
             }
+          ) : (
+            <div
+              className="
+                text-center
+                flex
+                flex-col
+                justify-center
+                items-center
+                gap-12
+                mt-24
+                mb-12
+              "
+            >
+              <Heading
+                size="md"
+                weight="semibold"
+                textColor="green"
+              >
+                Você ainda não adicionou nenhum produto
+              </Heading>
+              <Heading>
+                Adicione produtos clicando no botão abaixo
+              </Heading>
+            </div>
           )}
           <div
             className="
