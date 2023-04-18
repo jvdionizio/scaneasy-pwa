@@ -2,17 +2,18 @@ import Link from "next/link";
 import { FaHome, FaList, FaShoppingCart, FaTag } from "react-icons/fa";
 import IconNavBar from "./styles/IconNavBar";
 import TextNavBar from "./styles/TextNavBar";
+import { useRouter } from "next/router";
 
 export default function NavBar() {
   const buttonRootStyle = "flex flex-col justify-center items-center"
 
+  const router = useRouter()
+
+  const { pathname } = router
 
   return(
     <div
       className='
-        fixed
-        bottom-0
-        left-0
         w-screen
         h-24
         bg-gray-100
@@ -23,7 +24,9 @@ export default function NavBar() {
       <div
         className="
           flex
-          justify-between
+          justify-center
+          items-center
+          gap-10
         "
       >
         <Link
@@ -32,10 +35,14 @@ export default function NavBar() {
           <div
             className={buttonRootStyle}
           >
-            <IconNavBar>
+            <IconNavBar
+              selected={pathname === "/home"}
+            >
               <FaHome />
             </IconNavBar>
-            <TextNavBar>
+            <TextNavBar
+              selected={pathname === "/home"}
+            >
               Home
             </TextNavBar>
           </div>
@@ -46,10 +53,14 @@ export default function NavBar() {
           <div
             className={buttonRootStyle}
           >
-            <IconNavBar>
+            <IconNavBar
+              selected={pathname === "/list"}
+            >
               <FaList />
             </IconNavBar>
-            <TextNavBar>
+            <TextNavBar
+              selected={pathname === "/list"}
+            >
               Lista
             </TextNavBar>
           </div>
@@ -60,10 +71,14 @@ export default function NavBar() {
           <div
             className={buttonRootStyle}
           >
-            <IconNavBar>
+            <IconNavBar
+              selected={pathname === "/cart"}
+            >
               <FaShoppingCart />
             </IconNavBar>
-            <TextNavBar>
+            <TextNavBar
+              selected={pathname === "/cart"}
+            >
               Carrinho
             </TextNavBar>
           </div>
@@ -74,11 +89,15 @@ export default function NavBar() {
           <div
             className={buttonRootStyle}
           >
-            <IconNavBar>
+            <IconNavBar
+              selected={pathname === "/sale"}
+            >
               <FaTag />
             </IconNavBar>
-            <TextNavBar>
-              Promoções
+            <TextNavBar
+              selected={pathname === "/sale"}
+            >
+              descontos
             </TextNavBar>
           </div>
         </Link>

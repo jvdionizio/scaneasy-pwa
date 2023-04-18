@@ -13,7 +13,6 @@ export default function ProductCard({product, index}) {
           justify-center
           w-full
           m-4
-          ${index = 9 && 'mr-10'}
         `
       }
 
@@ -72,7 +71,9 @@ export default function ProductCard({product, index}) {
             my-5
           "
         >
-          <AddButton />
+          <AddButton
+            index={index}
+          />
         </div>
       </div>
     </div>

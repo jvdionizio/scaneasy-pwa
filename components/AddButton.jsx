@@ -1,6 +1,24 @@
-import { FaPlus } from "react-icons/fa";
+import { StoreContext } from "@/context/context";
+import { useContext, useEffect, useState } from "react";
+import { FaPlus, FaPlusCircle } from "react-icons/fa";
 
-export default function AddButton() {
+export default function AddButton({index}) {
+  const [clicked, setClicked] = useState(false);
+
+  const { list, setList } = useContext(StoreContext)
+
+  const handleAdd = () => {
+    const newList = [...list]
+    newList[index].quantity += 1
+    setList(newList)
+  }
+
+  useEffect(() => {
+    clicked && setTimeout(() => {
+      setClicked(false)
+    }, 200)
+  }, [clicked])
+
   return(
     <div
       className="
@@ -14,8 +32,18 @@ export default function AddButton() {
         ring-blue-700
         text-blue-700
       "
+      onClick={() => {
+        handleAdd()
+        setClicked(!clicked)
+      }}
     >
-      <FaPlus />
+      {
+        clicked ? (
+          <FaPlusCircle />
+        ) : (
+          <FaPlus />
+        )
+      }
     </div>
   )
 }

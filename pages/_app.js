@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import StoreProvider from "../context/context"
 import { Poppins } from "next/font/google"
 
 const poppins = Poppins({
@@ -10,7 +11,9 @@ const poppins = Poppins({
 export default function App({ Component, pageProps }) {
   return (
     <main className={`${poppins.variable} font-sans`}>
-      <Component {...pageProps} />
+      <StoreProvider>
+        <Component {...pageProps} />
+      </StoreProvider>
     </main>
   ) 
 }

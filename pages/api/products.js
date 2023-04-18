@@ -17,7 +17,8 @@ export default function handler(req, res) {
             carbs: "30g",
             totalFat: "1g"
           },
-          categories: "alimentos"
+          category: "alimentos",
+          measurement: "1kg"
         },
         {
           name: "Sabão em pó",
@@ -25,7 +26,8 @@ export default function handler(req, res) {
           description: "Sabão em pó Tixan Ypê, pacote com 2kg",
           image: "/products/sabao_em_po.jpg",
           sale: Math.floor(Math.random() * (max - min) + min),
-          categories: "limpeza"
+          category: "limpeza",
+          measurement: "2kg"
         },
         {
           name: "Leite em pó",
@@ -39,7 +41,8 @@ export default function handler(req, res) {
             carbs: "25g",
             totalFat: "20g"
           },
-          categories: "alimentos"
+          category: "alimentos",
+          measurement: "400g"
         },
         {
           name: "Biscoito recheado",
@@ -53,7 +56,8 @@ export default function handler(req, res) {
             carbs: "30g",
             totalFat: "8g"
           },
-          categories: "alimentos"
+          category: "alimentos",
+          measurement: "150g"
         },
         {
           name: "Feijão",
@@ -67,7 +71,8 @@ export default function handler(req, res) {
             carbs: "20g",
             totalFat: "0,5g"
           },
-          categories: "alimentos"
+          category: "alimentos",
+          measurement: "1kg"
         },
         {
           name: "Detergente líquido",
@@ -75,7 +80,8 @@ export default function handler(req, res) {
           description: "Detergente líquido Ypê, 500ml",
           image: "/products/detergente.webp",
           sale: Math.floor(Math.random() * (max - min) + min),
-          categories: "limpeza"
+          category: "limpeza",
+          measurement: "500ml"
         },
         {
           name: "Café",
@@ -83,7 +89,8 @@ export default function handler(req, res) {
           description: "Café torrado e moído, pacote com 250g",
           image: "/products/cafe.webp",
           sale: Math.floor(Math.random() * (max - min) + min),
-          categories: "alimentos"
+          category: "alimentos",
+          measurement: "250g"
         },
         {
           name: "Sabonete",
@@ -91,7 +98,8 @@ export default function handler(req, res) {
           description: "Sabonete em barra, pacote com 4 unidades",
           image: "/products/sabonete.webp",
           sale: Math.floor(Math.random() * (max - min) + min),
-          categories: "higiene pessoal"
+          category: "higiene pessoal",
+          measurement: "4 unid."
         },
         {
           name: "Água sanitária",
@@ -99,7 +107,8 @@ export default function handler(req, res) {
           description: "Água sanitária Ypê, 1L",
           image: "/products/agua_sanitaria.png",
           sale: Math.floor(Math.random() * (max - min) + min),
-          categories: "limpeza"
+          category: "limpeza",
+          measurement: "1L"
         },
         {
           name: "Papel higiênico",
@@ -107,7 +116,8 @@ export default function handler(req, res) {
           description: "Papel higiênico folha dupla, pacote com 12 rolos",
           image: "/products/papel_higienico.png",
           sale: Math.floor(Math.random() * (max - min) + min),
-          categories: "higiene pessoal"
+          category: "higiene pessoal",
+          measurement: "1 unid."
         }
       ]
     }
