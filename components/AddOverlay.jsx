@@ -3,18 +3,24 @@ import { useContext } from "react";
 import { FaList } from "react-icons/fa";
 import Heading from "./styles/Heading";
 import clsx from "clsx";
+import Link from "next/link";
 
-export default function AddOverlay({index}) {
+export default function AddOverlay() {
   const { showAddOverlay } = useContext(StoreContext)
 
   return(
-    <div>
+    <Link
+        href="/list"
+    >
       <div 
         className={clsx(
           'absolute',
           'transition-all',
           'duration-200',
-          'bg-green-500',
+          {
+           'bg-green-500' : showAddOverlay.type === 'add',
+            'bg-red-500' : showAddOverlay.type === 'remove', 
+          },
           'flex',
           'gap-4',
           'px-4',
@@ -26,8 +32,8 @@ export default function AddOverlay({index}) {
           'mx-auto',
           'w-fit',
           {
-            'top-8' : !showAddOverlay,
-            'top-24' : showAddOverlay,
+            'top-8' : !showAddOverlay.show,
+            'top-24' : showAddOverlay.show,
           },
         )}
       >
@@ -49,11 +55,13 @@ export default function AddOverlay({index}) {
               whitespace-nowrap
             "
           >
-            Produto adicionado a lista
+            {
+              ` ${showAddOverlay.product} ${showAddOverlay.type === 'add' ? 'adicionado a lista' : 'removido da lista'}`
+            }
           </h3>
         </Heading>
       </div>
-    </div>
+    </Link>
   )
 
 }

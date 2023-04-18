@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Minus, Plus, PlusCircle } from "phosphor-react";
 import React, {useContext, useEffect, useState} from "react";
-import { FaChevronDown, FaChevronUp, FaMinus, FaPlus, FaRegTrashAlt } from "react-icons/fa";
+import { FaChevronDown, FaRegTrashAlt } from "react-icons/fa";
 
 export default function List() {
   const {list} = useContext(StoreContext);
@@ -37,12 +37,10 @@ export default function List() {
     )
   }, [localList]);
 
-  console.log(uniqueCategories);
-
   return(
     <div className='w-screen h-screen flex flex-col py-4'>
       <Head>
-        <title>Scan Easy - Bem vindo</title>
+        <title>Scan Easy - Lista</title>
       </Head>
       <Header/>
       <div
@@ -53,10 +51,9 @@ export default function List() {
         '
       >
         <Heading
-          uppercase
           weight="semibold"
         >
-          Minha lista
+          Minha Lista
         </Heading>
         <div>
           {
@@ -270,7 +267,7 @@ export default function List() {
       <div
         className='
           fixed
-          bottom-0
+          -bottom-1
           left-0
           flex
           flex-col

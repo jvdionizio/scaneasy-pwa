@@ -6,8 +6,10 @@ import { productsObj } from "@/public/static/products";
 import NavBar from "@/components/NavBar";
 import DraggableCard from "@/components/DraggableCard";
 import AddOverlay from "@/components/AddOverlay";
+import { useEffect } from "react";
 
 export default function Home({data}) {
+
   return(
     <div className='w-screen h-screen flex flex-col py-4
       overflow-x-hidden overflow-clip
@@ -21,7 +23,7 @@ export default function Home({data}) {
         <SectionSwiper data={data} type={"highlights"} />
       </div>
       <div
-        className='mt-8'
+        className='mt-14'
       >
         <SectionSwiper data={data} type={"categories"} />
       </div>
@@ -29,7 +31,7 @@ export default function Home({data}) {
       <div
         className='
           fixed
-          bottom-0
+          -bottom-1
           left-0
           flex
           flex-col

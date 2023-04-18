@@ -1,16 +1,15 @@
 import { StoreContext } from "@/context/context";
 import { useContext, useEffect, useState } from "react";
-import { FaCheckCircle, FaPlus, FaPlusCircle } from "react-icons/fa";
+import { FaCheckCircle, FaPlus } from "react-icons/fa";
 
 export default function AddButton({index}) {
   const [clicked, setClicked] = useState(false);
 
-  const { list, setList, setShowAddOverlay } = useContext(StoreContext)
+  const { list, setShowAddOverlay } = useContext(StoreContext)
 
   const handleAdd = () => {
     const newList = [...list]
-    newList[index].quantity += 1
-    setList(newList)
+    clicked ? newList[index].quantity-- : newList[index].quantity++
   }
 
   useEffect(() => {
@@ -33,7 +32,11 @@ export default function AddButton({index}) {
       onClick={() => {
         handleAdd()
         setClicked(!clicked)
-        setShowAddOverlay(true)
+        setShowAddOverlay({
+          show: true,
+          product: list[index].name,
+          type: clicked ? 'remove' : 'add',
+        })
       }}
     >
       {

@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import nookies from "nookies";
 import { productsObj } from "@/public/static/products";
 
 export const StoreContext = createContext(null);
@@ -6,7 +7,15 @@ export const StoreContext = createContext(null);
 function StoreProvider({ children }) {
   const [list, setList] = useState();
 
-  const [showAddOverlay, setShowAddOverlay] = useState(false);
+  const [showAddOverlay, setShowAddOverlay] = useState({
+    show: false,
+    product: null,
+    type: null,
+  });
+
+  const [cartConnect, setCartConnect] = useState(false);
+
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
@@ -26,7 +35,10 @@ function StoreProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    showAddOverlay && setTimeout(() => setShowAddOverlay(false), 2000);
+    showAddOverlay.show && setTimeout(() => setShowAddOverlay({
+      ...showAddOverlay,
+      show: false,
+    }), 1300);
   }, [showAddOverlay]);
 
   return (
@@ -34,6 +46,10 @@ function StoreProvider({ children }) {
       value={{
         list,
         showAddOverlay,
+        cartConnect,
+        cart,
+        setCart,
+        setCartConnect,
         setShowAddOverlay,
         setList
       }}
