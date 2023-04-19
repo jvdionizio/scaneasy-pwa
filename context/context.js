@@ -7,6 +7,8 @@ export const StoreContext = createContext(null);
 function StoreProvider({ children }) {
   const [list, setList] = useState();
 
+  const [products, setProducts] = useState([]);
+
   const [showAddOverlay, setShowAddOverlay] = useState({
     show: false,
     product: null,
@@ -48,6 +50,8 @@ function StoreProvider({ children }) {
         showAddOverlay,
         cartConnect,
         cart,
+        products,
+        setProducts,
         setCart,
         setCartConnect,
         setShowAddOverlay,

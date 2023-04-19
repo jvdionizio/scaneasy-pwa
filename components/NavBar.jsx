@@ -1,11 +1,18 @@
 import Link from "next/link";
-import { FaHome, FaList, FaShoppingCart, FaTag } from "react-icons/fa";
+import clsx from "clsx";
+import { FaHome, FaListAlt, FaShoppingCart, FaTag } from "react-icons/fa";
 import IconNavBar from "./styles/IconNavBar";
 import TextNavBar from "./styles/TextNavBar";
 import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
+import { StoreContext } from "@/context/context";
 
-export default function NavBar() {
-  const buttonRootStyle = "flex flex-col justify-center items-center"
+export default function NavBar({
+  notification,
+  setNotification
+}) {
+
+  const buttonRootStyle = "flex flex-col justify-center items-center relative";
 
   const router = useRouter()
 
@@ -52,12 +59,30 @@ export default function NavBar() {
         >
           <div
             className={buttonRootStyle}
+            onClick={() => setNotification(false)}
           >
             <IconNavBar
               selected={pathname === "/list"}
             >
-              <FaList />
+              <FaListAlt />
             </IconNavBar>
+            {
+              notification && (
+                <div
+                  className={
+                    clsx( 
+                      'absolute',
+                      '-top-[5px]',
+                      '-right-[5px]',
+                      'w-3',
+                      'h-3',
+                      'rounded-full',
+                      'bg-red-500',
+                    )
+                  }
+                />
+              )
+            }
             <TextNavBar
               selected={pathname === "/list"}
             >
