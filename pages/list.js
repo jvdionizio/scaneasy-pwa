@@ -3,6 +3,7 @@ import NavBar from "@/components/NavBar";
 import Heading from "@/components/styles/Heading";
 import Text from "@/components/styles/Text";
 import { StoreContext } from "@/context/context";
+import clsx from "clsx";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,6 +17,8 @@ export default function List() {
   const [localList, setLocalList] = useState(list);
 
   const [uniqueCategories, setUniqueCategories] = useState();
+
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     setLocalList(
@@ -37,6 +40,14 @@ export default function List() {
     )
   }, [localList]);
 
+  useEffect(() => {
+    setTotal(
+      localList && localList.reduce((acc, product) => {
+        return acc + (product.price * product.quantity);
+      }, 0)
+    )
+  }, [localList]);
+
   return(
     <div className='w-screen h-screen flex flex-col py-4'>
       <Head>
@@ -50,11 +61,40 @@ export default function List() {
           p-6
         '
       >
-        <Heading
-          weight="semibold"
+        <div
+          className="
+            flex
+            justify-between
+            items-center
+            transition-all
+            duration-300
+            w-full
+          "
         >
-          Minha Lista
-        </Heading>
+          <Heading
+            weight="semibold"
+          >
+            Minha Lista
+          </Heading>
+          <Heading
+            weight="medium"
+            size="sm"
+            textColor="800"
+            asChild
+          >
+            <h3
+              className={
+                clsx(
+                  {
+                    'hidden': total === 0,
+                  }
+                )
+              }
+            >
+              {total && total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
+            </h3>
+          </Heading>
+        </div>
         <div>
           {
             uniqueCategories?.length > 0 ? uniqueCategories.map((category, index) => {

@@ -43,7 +43,7 @@ export const productsObj = {
       measurement: "400g"
     },
     {
-      name: "Biscoito recheado",
+      name: "Bolacha",
       price: 2.99,
       description: "Biscoito recheado sabor chocolate, pacote com 150g",
       image: "/products/biscoito_recheado.webp",

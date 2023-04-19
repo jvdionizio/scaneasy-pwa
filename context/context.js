@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import nookies from "nookies";
 import { productsObj } from "@/public/static/products";
 
 export const StoreContext = createContext(null);
@@ -7,7 +6,14 @@ export const StoreContext = createContext(null);
 function StoreProvider({ children }) {
   const [list, setList] = useState();
 
-  const [products, setProducts] = useState([]);
+  const [navBarNotification, setNavBarNotification] = useState({
+    list:{
+      show: false,
+    },
+    cart:{
+      show: false,
+    },
+  });
 
   const [showAddOverlay, setShowAddOverlay] = useState({
     show: false,
@@ -15,9 +21,24 @@ function StoreProvider({ children }) {
     type: null,
   });
 
+  const [showProductOverlay, setShowProductOverlay] = useState({
+    show: false,
+    product: null,
+    index: null,
+  });
+
   const [cartConnect, setCartConnect] = useState(false);
 
   const [cart, setCart] = useState([]);
+
+  const popUpRandomProduct = () => {
+    const randomProduct = Math.floor(Math.random() * list.length);
+    setShowProductOverlay({
+      show: true,
+      product: list[randomProduct],
+      productIndex: randomProduct,
+    });
+  };
 
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
@@ -27,12 +48,14 @@ function StoreProvider({ children }) {
           product.quantity = 0;
         });
         setList(data.products);
+        setCart(data.products)
       })
       .catch(() => {
         productsObj.products.map((product) => {
           product.quantity = 0;
         });
         setList(productsObj.products);
+        setCart(productsObj.products)
       });
   }, []);
 
@@ -50,8 +73,11 @@ function StoreProvider({ children }) {
         showAddOverlay,
         cartConnect,
         cart,
-        products,
-        setProducts,
+        navBarNotification,
+        showProductOverlay,
+        setShowProductOverlay,
+        popUpRandomProduct,
+        setNavBarNotification,
         setCart,
         setCartConnect,
         setShowAddOverlay,

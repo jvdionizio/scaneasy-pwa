@@ -6,29 +6,11 @@ import { productsObj } from "@/public/static/products";
 import NavBar from "@/components/NavBar";
 import DraggableCard from "@/components/DraggableCard";
 import AddOverlay from "@/components/AddOverlay";
-import { useContext, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import { StoreContext } from "@/context/context";
+import ProductOverlay from "@/components/ProductOverlay";
 
 export default function Home({data}) {
-  const {list} = useContext(StoreContext);
-
-  const [notification, setNotification] = useState(false);
-
-  const [localList, setLocalList] = useState(list);
-
-  useEffect(() => {
-    setLocalList(
-      list && list.filter((product) => {
-        if(product.quantity > 0) {
-          return product;
-        }
-      })
-    );
-  }, [list]);
-
-  useEffect(() => {
-    localList && localList.length > 0 ? setNotification(true) : setNotification(false);
-  }, [localList]);
 
   return(
     <div className='w-screen h-screen flex flex-col py-4
@@ -60,8 +42,9 @@ export default function Home({data}) {
         '
       >
         <DraggableCard/>
-        <NavBar notification={notification} setNotification={setNotification}/>
+        <NavBar />
       </div>
+      <ProductOverlay />
     </div>
   )
 }

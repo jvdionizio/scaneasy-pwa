@@ -5,7 +5,12 @@ import { FaCheckCircle, FaPlus } from "react-icons/fa";
 export default function AddButton({index}) {
   const [clicked, setClicked] = useState(false);
 
-  const { list, setShowAddOverlay } = useContext(StoreContext)
+  const {
+    list,
+    setShowAddOverlay,
+    navBarNotification,
+    setNavBarNotification
+  } = useContext(StoreContext)
 
   const handleAdd = () => {
     const newList = [...list]
@@ -36,6 +41,12 @@ export default function AddButton({index}) {
           show: true,
           product: list[index].name,
           type: clicked ? 'remove' : 'add',
+        })
+        setNavBarNotification({
+          ...navBarNotification,
+          list: {
+            show: true,
+          }
         })
       }}
     >

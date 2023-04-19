@@ -6,8 +6,15 @@ import banner2 from '../public/banner2.png';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+import { useContext } from 'react';
+import { StoreContext } from '@/context/context';
 
 export default function Hero(){
+  const {
+    popUpRandomProduct,
+    cartConnect,
+  } = useContext(StoreContext);
+
   return (
     <div
       className='
@@ -38,6 +45,9 @@ export default function Hero(){
               h-full
               p-8
             '
+            onClick={() => {
+              cartConnect && popUpRandomProduct();
+            }}
           >
             <Image src={banner1} alt='banner budweiser' />
           </div>
@@ -49,6 +59,9 @@ export default function Hero(){
               h-full
               p-8
             '
+            onClick={() => {
+              cartConnect && popUpRandomProduct();
+            }}
           >
             <Image src={banner2} alt='banner elmachips' />
           </div>
@@ -60,6 +73,9 @@ export default function Hero(){
               h-full
               p-8
             '
+            onClick={() => {
+              cartConnect && popUpRandomProduct();
+            }}
           >
             <Image src={banner2} alt='banner elmachips' />
           </div>

@@ -4,13 +4,16 @@ import { FaHome, FaListAlt, FaShoppingCart, FaTag } from "react-icons/fa";
 import IconNavBar from "./styles/IconNavBar";
 import TextNavBar from "./styles/TextNavBar";
 import { useRouter } from "next/router";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { StoreContext } from "@/context/context";
 
-export default function NavBar({
-  notification,
-  setNotification
-}) {
+export default function NavBar({}) {
+
+  const {
+    navBarNotification,
+    setNavBarNotification,
+    cartConnect,
+  } = useContext(StoreContext)
 
   const buttonRootStyle = "flex flex-col justify-center items-center relative";
 
@@ -29,12 +32,17 @@ export default function NavBar({
       '
     >
       <div
-        className="
-          flex
-          justify-center
-          items-center
-          gap-10
-        "
+        className={
+          clsx(
+            'flex',
+            'justify-center',
+            'items-center',
+            {
+              'gap-10': cartConnect,
+              'gap-16': !cartConnect
+            }
+          )
+        }
       >
         <Link
           href="/home"
@@ -59,7 +67,14 @@ export default function NavBar({
         >
           <div
             className={buttonRootStyle}
-            onClick={() => setNotification(false)}
+            onClick={() => setNavBarNotification(
+                {
+                  ...navBarNotification,
+                  list: {
+                    show: false
+                  }
+                }
+              )}
           >
             <IconNavBar
               selected={pathname === "/list"}
@@ -67,7 +82,7 @@ export default function NavBar({
               <FaListAlt />
             </IconNavBar>
             {
-              notification && (
+              navBarNotification.list.show === true && (
                 <div
                   className={
                     clsx( 
@@ -92,15 +107,47 @@ export default function NavBar({
         </Link>
         <Link
           href="/cart"
+          className={
+            clsx(
+              {
+                hidden: !cartConnect
+              }
+            )
+          }
         >
           <div
             className={buttonRootStyle}
+            onClick={() => setNavBarNotification(
+              {
+                ...navBarNotification,
+                cart: {
+                  show: false
+                }
+              }
+            )}
           >
             <IconNavBar
               selected={pathname === "/cart"}
             >
               <FaShoppingCart />
             </IconNavBar>
+            {
+              navBarNotification.cart.show === true && (
+                <div
+                  className={
+                    clsx( 
+                      'absolute',
+                      '-top-1',
+                      'right-2',
+                      'w-3',
+                      'h-3',
+                      'rounded-full',
+                      'bg-red-500',
+                    )
+                  }
+                />
+              )
+            }
             <TextNavBar
               selected={pathname === "/cart"}
             >

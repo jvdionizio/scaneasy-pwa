@@ -58,12 +58,19 @@ export default function ProductCard({product, index}) {
           <Text
             size="xl"
           >
-            {`R$ ${product.price}`}
+            {product.price.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
           </Text>
           <Text
             textColor="blue"
+            asChild
           >
-            {product.name}
+            <p
+              className="
+                whitespace-nowrap
+              "
+            >
+              {product.name}
+            </p>
           </Text>
         </div>
         <div
