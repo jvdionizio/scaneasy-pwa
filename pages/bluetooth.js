@@ -2,6 +2,7 @@ import { useState } from "react"
 export default function BluetoothPage() {
   const [deviceLogs, setDeviceLogs] = useState([])
   const [deviceName, setDeviceName] = useState('')
+  const [characteristicsState, setCharacteristicsState] = useState(null)
   const [receivedData, setReceivedData] = useState([])
   //TROQUEI DE LUGAR A FUNÇÃO EM RELAÇÃO AO CÓDIGO ORIGINAL!!!!
   // Processa os dados recebidos
@@ -31,6 +32,7 @@ export default function BluetoothPage() {
     }).
         then(device => {
           log('"' + device.name + '" bluetooth device selected');
+          setDeviceName(device.name)
           deviceCache = device;
           deviceCache.addEventListener('gattserverdisconnected',
               handleDisconnection);
@@ -63,6 +65,8 @@ export default function BluetoothPage() {
         }).
         then(characteristic => {
           log('Characteristic found');
+          console.log(characteristic)
+          setCharacteristicsState(characteristic)
           characteristicCache = characteristic;
           return characteristicCache;
         });
