@@ -36,7 +36,7 @@ export default function ProductCard({product, index}) {
           className="
             w-28
             h-28
-            object-cover
+            object-scale-down
           "
         />
       </div>

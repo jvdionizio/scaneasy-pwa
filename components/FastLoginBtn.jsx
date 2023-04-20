@@ -14,7 +14,6 @@ export default function FastLoginBtn({type}) {
         px-6
         gap-3
         rounded-full
-        shadow-lg
         bg-[#f0f0f0]
         hover:bg-[#e0e0e0]
         active:bg-[#d0d0d0]
