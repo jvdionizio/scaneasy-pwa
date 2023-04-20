@@ -17,13 +17,18 @@ export default function ProductOverlay(){
   } = useContext(StoreContext);
 
   const addToCart = (index) => {
-    cart && setCart({
-      ...cart,
-      [index]: {
-        ...cart[index],
-        quantity: cart[index].quantity + 1,
-      }
-    })
+    cart && setCart(
+      cart.map((product, i) => {
+        if(i === index){
+          return {
+            ...product,
+            quantity: product.quantity + 1,
+          }
+        }else{
+          return product
+        }
+      })
+    )
     setNavBarNotification({
       ...navBarNotification,
       cart: {
@@ -33,13 +38,20 @@ export default function ProductOverlay(){
   }
 
   const removeFromCart = (index) => {
-    cart && setCart({
-      ...cart,
-      [index]: {
-        ...cart[index],
-        quantity: cart[index].quantity > 0 ? cart[index].quantity - 1 : 0,
-      }
-    })
+    cart && setCart(
+      cart.map((product, i) => {
+        if(i === index){
+          if(product.quantity > 0){
+            return {
+              ...product,
+              quantity: product.quantity - 1,
+            }
+          }
+        }else{
+          return product
+        }
+      })
+    )
   }
 
   return(
