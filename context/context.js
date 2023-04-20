@@ -24,7 +24,7 @@ function StoreProvider({ children }) {
   const [showProductOverlay, setShowProductOverlay] = useState({
     show: false,
     product: null,
-    index: null,
+    productIndex: null,
   });
   
   const [cartConnect, setCartConnect] = useState(false);
@@ -36,8 +36,8 @@ function StoreProvider({ children }) {
   const [receivedData, setReceivedData] = useState([])
 
   useEffect(() => {
-    cart && receivedData[receivedData.length - 1] === "6a23691a" && setShowProductOverlay({show: true, product: cart[0], index: 0});
-    cart && receivedData[receivedData.length - 1] === "773218b3" && setShowProductOverlay({show: true, product: cart[1], index: 1});
+    cart && receivedData[receivedData.length - 1] === "6a23691a" && setShowProductOverlay({show: true, product: cart[0], productIndex: 0});
+    cart && receivedData[receivedData.length - 1] === "773218b3" && setShowProductOverlay({show: true, product: cart[1], productIndex: 1});
   }, [receivedData])
 
   //TROQUEI DE LUGAR A FUNÇÃO EM RELAÇÃO AO CÓDIGO ORIGINAL!!!!
