@@ -12,7 +12,7 @@ export default function ProductCard({product, index}) {
           flex-col
           justify-center
           w-full
-          ${index = 9 && 'mr-10'}
+          m-4
         `
       }
 
@@ -58,12 +58,19 @@ export default function ProductCard({product, index}) {
           <Text
             size="xl"
           >
-            {`R$ ${product.price}`}
+            {product.price.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
           </Text>
           <Text
             textColor="blue"
+            asChild
           >
-            {product.name}
+            <p
+              className="
+                whitespace-nowrap
+              "
+            >
+              {product.name}
+            </p>
           </Text>
         </div>
         <div
@@ -71,7 +78,9 @@ export default function ProductCard({product, index}) {
             my-5
           "
         >
-          <AddButton />
+          <AddButton
+            index={index}
+          />
         </div>
       </div>
     </div>

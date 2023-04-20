@@ -6,17 +6,12 @@ import { FaTimes } from 'react-icons/fa'
 import Button from './styles/Button'
 import Heading from './styles/Heading'
 
-export default function Menu({Open}) {
-  const [isOpen, setIsOpen] = useState(false)
-
-  useEffect(() => {
-    setIsOpen(Open)
-  }, [Open])
+export default function Menu({Open, setOpen}) {
 
   const links = [
     {
-      name: 'Home',
-      url: '/home'
+      name: 'Perfil',
+      url: '/perfil'
     },
     {
       name: 'Histórico',
@@ -36,10 +31,10 @@ export default function Menu({Open}) {
       className={`      
         flex
         flex-col
-        justify-center
+        p-6
         w-screen
         h-screen
-        ${ isOpen ? 'absolute' : 'hidden'}
+        ${ Open ? 'absolute' : 'hidden'}
         top-0
         left-0
         bg-blue-700
@@ -58,7 +53,7 @@ export default function Menu({Open}) {
       >
         <Image src={IconLogo} alt="Logo" className='h-9 w-fit'/>
         <div
-          onClick={() => setIsOpen(false)}
+          onClick={() => setOpen(false)}
         >
           <FaTimes
             className='
@@ -71,16 +66,20 @@ export default function Menu({Open}) {
       </div>
       <div
         className='
-          flex
-          flex-col
-          justify-center
-          gap-6
-          w-content
+          w-fit
           h-6/12
+          mt-40
         '
       >
         <nav>
-          <ul>
+          <ul
+            className='
+              h-full
+              flex
+              flex-col
+              gap-6
+            '
+          >
             {links.map((link, index) => (
               <Link
                 href={link.url}
@@ -90,11 +89,10 @@ export default function Menu({Open}) {
                   className='
                     flex 
                     flex-col
-                    items-center
-                    px-4
-                    py-2
+                    px-1
                     border-b-4
                     border-b-green-500
+                    w-fit
                   '
                 >
                     <Heading
@@ -115,7 +113,10 @@ export default function Menu({Open}) {
           flex
           flex-col
           justify-center
-          gap-6
+          items-center
+          text-center
+          gap-10
+          mt-28
         '
       >
         <Heading
@@ -126,8 +127,9 @@ export default function Menu({Open}) {
         </Heading>
         <Button
           bgColor='white'
-          textSize='md'
+          textSize='lg'
           textColor='blue'
+          width='half'
         >
           <div>
             Conectar

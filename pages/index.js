@@ -5,6 +5,7 @@ import Head from 'next/head';
 import IconLogo from '../public/IconLogo.svg'
 import loginImage from '../public/loginImage.png'
 import Button from '@/components/styles/Button'
+import NavBar from '@/components/NavBar';
 
 export default function Welcome() {
   return(
