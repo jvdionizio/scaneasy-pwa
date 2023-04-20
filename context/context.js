@@ -39,7 +39,7 @@ function StoreProvider({ children }) {
     receivedData[receivedData.length - 1] === "6a23691a" && setShowProductOverlay({show: true, product: productsObj.products[0], index: 0});
     receivedData[receivedData.length - 1] === "773218b3" && setShowProductOverlay({show: true, product: productsObj.products[1], index: 1});
   }, [receivedData])
-  
+
   //TROQUEI DE LUGAR A FUNÇÃO EM RELAÇÃO AO CÓDIGO ORIGINAL!!!!
   // Processa os dados recebidos
   function receive(data) {
@@ -104,7 +104,6 @@ function StoreProvider({ children }) {
         then(characteristic => {
           log('Characteristic found');
           console.log(characteristic)
-          setCharacteristicsState(characteristic)
           characteristicCache = characteristic;
           return characteristicCache;
         });
