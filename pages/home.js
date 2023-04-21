@@ -6,14 +6,12 @@ import { productsObj } from "@/public/static/products";
 import NavBar from "@/components/NavBar";
 import DraggableCard from "@/components/DraggableCard";
 import AddOverlay from "@/components/AddOverlay";
-import {useEffect, useState} from "react";
-import { StoreContext } from "@/context/context";
 import ProductOverlay from "@/components/ProductOverlay";
 
 export default function Home({data}) {
 
   return(
-    <div className='w-screen h-screen flex flex-col py-4
+    <div className='w-screen h-screen flex flex-col pt-20
       overflow-x-hidden overflow-clip
     '>
       <Head>

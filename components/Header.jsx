@@ -7,7 +7,7 @@ import { useState } from 'react'
 export default function Header(){
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <header className="bg-white z-20">
+    <header className="bg-white z-20 fixed left-0 top-0 right-0 mx-auto">
       <div
         className='
           flex
@@ -15,7 +15,7 @@ export default function Header(){
           justify-center
           gap-6
           w-full
-          pb-4
+          py-4
           border-b-[2px]
           border-gray-200
         '

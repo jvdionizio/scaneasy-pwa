@@ -154,6 +154,28 @@ function StoreProvider({ children }) {
     });
   };
 
+  const removeFromList = (index) => {
+    list && setList(
+      list.map((product, i) => {
+        if(i === index){
+          if(product.quantity > 0){
+            return {
+              ...product,
+              quantity: product.quantity - 1,
+            }
+          } else {
+            return {
+              ...product,
+              quantity: 0,
+            }
+          }
+        }else{
+          return product
+        }
+      })
+    )
+  }
+
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
       .then((res) => res.json())
@@ -189,6 +211,7 @@ function StoreProvider({ children }) {
         cart,
         navBarNotification,
         showProductOverlay,
+        removeFromList,
         deviceName,
         connect,
         setShowProductOverlay,
