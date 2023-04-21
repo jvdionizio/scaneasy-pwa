@@ -1,8 +1,12 @@
 import { Minus, Plus } from "phosphor-react";
 import Text from "./styles/Text";
 import Image from "next/image";
+import { useContext } from "react";
+import { StoreContext } from "@/context/context";
 
-export default function CartCard({product, productSale, remove, add}) {
+export default function CartCard({index, product, productSale, remove, add}) {
+  const { removeFromList } = useContext(StoreContext)
+  
   return(
     <div
     className="
@@ -113,7 +117,10 @@ export default function CartCard({product, productSale, remove, add}) {
             text-blue-700
             cursor-pointer
           "
-          onClick={add}
+          onClick={() => {
+            add()
+            removeFromList(index)
+          }}
         />
       </div>
     </div>

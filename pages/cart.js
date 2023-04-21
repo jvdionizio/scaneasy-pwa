@@ -39,28 +39,6 @@ export default function Cart() {
     )
   }, [cart])
 
-  const removeFromList = (index) => {
-    list && setList(
-      list.map((product, i) => {
-        if(i === index){
-          if(product.quantity > 0){
-            return {
-              ...product,
-              quantity: product.quantity - 1,
-            }
-          } else {
-            return {
-              ...product,
-              quantity: 0,
-            }
-          }
-        }else{
-          return product
-        }
-      })
-    )
-  }
-
   return(
     <div className='w-screen h-screen flex flex-col py-4'>
       <Head>
@@ -115,23 +93,31 @@ export default function Cart() {
               Produtos
             </Text>
             {
-              localCart && localCart.length ? localCart.map((product, index) =>  {
+              localCart && localCart.length ? localCart.map((product) =>  {
                 product.quantity === 0 && setLocalCart([
                   ...localCart.slice(0, index),
                   ...localCart.slice(index + 1)
                 ])
                 const productSale = product.price - (product.price * (product.sale/100))
+                const getCartIndex = () => {
+                  let index = 0;
+                  cart && cart.map((item, i) => {
+                    if(item.name === product.name){
+                      index = i;
+                    }
+                  })
+                  return index;
+                }
                 return(
                   <CartCard
-                    key={index}
-                    index={index}
+                    key={getCartIndex()}
+                    index={getCartIndex()}
                     product={product}
                     productSale={productSale}
                     add={
                       () =>{
                         product.quantity += 1;
                         setLocalCart([...localCart]);
-                        removeFromList(index)
                       }
                     }
                     remove={
