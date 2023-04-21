@@ -82,6 +82,8 @@ export default function ProductOverlay(){
     )
   }
 
+  console.log(showProductOverlay.show, showProductOverlay.product, showProductOverlay.productIndex, "entrou nessa porra")
+  
   return(
     <div
       className={

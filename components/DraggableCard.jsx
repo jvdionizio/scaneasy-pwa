@@ -8,7 +8,7 @@ import Text from "./styles/Text";
 export default function DraggableCard() {
   const [dragging, setDragging] = useState(false);
 
-  const {cartConnect, setCartConnect} = useContext(StoreContext);
+  const {cartConnect, connect} = useContext(StoreContext);
 
   return(
     <div
@@ -101,7 +101,7 @@ export default function DraggableCard() {
                 },
               )
             }
-            onClick={() => setCartConnect(true)}
+            onClick={() => connect(true)}
           >
             Conectar
           </div>
