@@ -25,11 +25,13 @@ export default function Text({
           'text-green-500': textColor === 'green',
           'text-blue-700': textColor === 'blue',
           'text-white ': textColor === 'white',
+          'text-red-500': textColor === 'red',
         },
         { 
           'text-xs': size === 'sm',
           'text-sm': size === 'md',
           'text-md': size === 'lg',
+          'text-2md': size === 'xl',
         },
         {
           'line-through': decoration === 'risco',

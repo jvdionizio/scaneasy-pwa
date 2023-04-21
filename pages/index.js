@@ -27,16 +27,16 @@ export default function Welcome() {
         />
       </div>
       <div
-        className='w-full flex flex-col items-center justify-center px-11 gap-3'
+        className='w-3/4 flex flex-col items-center justify-center gap-3'
       >
         <Button
           textSize='lg'
         >
-          <button>
+          <div>
             <Link href='/signup'>
               Criar uma conta
             </Link>
-          </button>
+          </div>
         </Button>
         <div
           className='w-full flex items-center justify-center px-8'
@@ -45,11 +45,11 @@ export default function Welcome() {
             bgColor='green'
             textSize='sm'
           >
-            <button>
+            <div>
               <Link href='/login'>
                 Já tenho uma conta
               </Link>
-            </button>
+            </div>
           </Button>
         </div>
       </div>
