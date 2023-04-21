@@ -58,6 +58,7 @@ export default function List() {
         className='
           flex
           flex-col
+          pt-20
           p-6
         '
       >

@@ -24,7 +24,7 @@ function StoreProvider({ children }) {
   const [showProductOverlay, setShowProductOverlay] = useState({
     show: false,
     product: null,
-    index: null,
+    productIndex: null,
   });
 
   const [cartConnect, setCartConnect] = useState(false);

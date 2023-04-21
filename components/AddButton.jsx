@@ -7,14 +7,46 @@ export default function AddButton({index}) {
 
   const {
     list,
+    setList,
     setShowAddOverlay,
     navBarNotification,
     setNavBarNotification
   } = useContext(StoreContext)
 
-  const handleAdd = () => {
-    const newList = [...list]
-    clicked ? newList[index].quantity-- : newList[index].quantity++
+  const addToList = (index) => {
+    list && setList(
+      list.map((product, i) => {
+        if(i === index){
+          return {
+            ...product,
+            quantity: product.quantity + 1,
+          }
+        }else{
+          return product
+        }
+      })
+    )
+  }
+
+  const removeFromList = (index) => {
+    list && setList(
+      list.map((product, i) => {
+        if(i === index){
+          if(product.quantity > 0){
+            return {
+              ...product,
+              quantity: product.quantity - 1,
+            }
+          }
+        }else{
+          return product
+        }
+      })
+    )
+  }
+
+  const handleClick= (index) => {
+    list && list[index].quantity > 0 ? removeFromList(index) : addToList(index)
   }
 
   useEffect(() => {
@@ -35,7 +67,7 @@ export default function AddButton({index}) {
         text-blue-700
       "
       onClick={() => {
-        handleAdd()
+        handleClick(index)
         setClicked(!clicked)
         setShowAddOverlay({
           show: true,

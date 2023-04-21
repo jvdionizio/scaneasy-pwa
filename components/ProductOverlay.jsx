@@ -14,6 +14,8 @@ export default function ProductOverlay(){
     navBarNotification,
     cart,
     setCart,
+    list,
+    setList,
   } = useContext(StoreContext);
 
   const addToCart = (index) => {
@@ -29,6 +31,27 @@ export default function ProductOverlay(){
         }
       })
     )
+    console.log("entrou antes do list e tal");
+    list && setList(
+      list.map((product, i) => {
+        if(i === index){
+          if(product.quantity > 0){
+            return {
+              ...product,
+              quantity: product.quantity - 1,
+            }
+          } else {
+            return {
+              ...product,
+              quantity: 0,
+            }
+          }
+        }else{
+          return product
+        }
+      })
+    )
+    console.log(list);
     setNavBarNotification({
       ...navBarNotification,
       cart: {
@@ -45,6 +68,11 @@ export default function ProductOverlay(){
             return {
               ...product,
               quantity: product.quantity - 1,
+            }
+          } else {
+            return {
+              ...product,
+              quantity: 0,
             }
           }
         }else{
