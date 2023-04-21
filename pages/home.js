@@ -12,8 +12,6 @@ import ProductOverlay from "@/components/ProductOverlay";
 import TutorialOverLay from "@/components/TutorialOverlay";
 
 export default function Home({data}) {
-  const [showTutorial, setShowTutorial] = useState(false);
-
   return(
     <div className='w-screen h-screen flex flex-col py-4
       overflow-x-hidden overflow-clip
@@ -47,7 +45,7 @@ export default function Home({data}) {
         <NavBar />
       </div>
       <ProductOverlay />
-
+      <TutorialOverLay/>
     </div>
   )
 }
