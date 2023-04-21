@@ -1,6 +1,7 @@
 import CartCard from "@/components/CartCard";
 import Header from "@/components/Header";
 import NavBar from "@/components/NavBar";
+import ProductOverlay from "@/components/ProductOverlay";
 import Button from "@/components/styles/Button";
 import Heading from "@/components/styles/Heading";
 import Text from "@/components/styles/Text";
@@ -360,6 +361,7 @@ export default function Cart() {
           </Heading>
         </div>
       </div>
+      <ProductOverlay />
       <div
         className='
           fixed

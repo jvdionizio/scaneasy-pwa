@@ -35,6 +35,8 @@ function StoreProvider({ children }) {
   const [deviceName, setDeviceName] = useState('')
   const [receivedData, setReceivedData] = useState([])
 
+  const [accessManager, setAccessManager] = useState(0);
+
   useEffect(() => {
     cart && receivedData[receivedData.length - 1] === "6a23691a" && setShowProductOverlay({show: true, product: cart[0], productIndex: 0});
     cart && receivedData[receivedData.length - 1] === "773218b3" && setShowProductOverlay({show: true, product: cart[1], productIndex: 1});
@@ -211,8 +213,10 @@ function StoreProvider({ children }) {
         cart,
         navBarNotification,
         showProductOverlay,
-        removeFromList,
         deviceName,
+        accessManager,
+        setAccessManager,
+        removeFromList,
         connect,
         setShowProductOverlay,
         popUpRandomProduct,

@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import NavBar from "@/components/NavBar";
+import ProductOverlay from "@/components/ProductOverlay";
 import Heading from "@/components/styles/Heading";
 import Text from "@/components/styles/Text";
 import { StoreContext } from "@/context/context";
@@ -305,6 +306,7 @@ export default function List() {
           </div>
         </div>
       </div>
+      <ProductOverlay />
       <div
         className='
           fixed

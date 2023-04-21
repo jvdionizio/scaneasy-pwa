@@ -1,16 +1,29 @@
 import clsx from "clsx";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, EffectCards } from 'swiper';
 import "swiper/css";
 import "swiper/css/effect-cards";
-import { FaArrowRight, FaBluetooth, FaBluetoothB, FaListAlt, FaShoppingCart, FaTable, FaTablet, FaTabletAlt, FaTimes } from "react-icons/fa";
+import { FaBluetoothB, FaListAlt, FaShoppingCart, FaTabletAlt, FaTimes } from "react-icons/fa";
 import Heading from "./styles/Heading";
-import { ArrowRight } from "phosphor-react";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import Button from "./styles/Button";
+import { StoreContext } from "@/context/context";
 
 export default function TutorialOverLay() {
-  const [show, setShow] = useState(true);
+
+  const [show, setShow] = useState(false);
+
+  const {accessManager, setAccessManager} = useContext(StoreContext);
+
+  useEffect(() => {
+    if(accessManager === 0){
+      setShow(true)
+      setAccessManager(1)
+    }
+  },[])
+
   
   return(
     <div
@@ -30,6 +43,8 @@ export default function TutorialOverLay() {
           'py-10',
           'px-6',
           'z-50',
+          'transition-all',
+          'duration-500',
           {
             'hidden': !show
           }
@@ -200,6 +215,15 @@ export default function TutorialOverLay() {
                   </span>
                 </Heading>
               </div>
+              <Button
+                width="fit"
+              >
+                <div
+                  onClick={() => setShow(false)}
+                >
+                  <span className="text-white font-bold">Continuar</span>
+                </div>
+              </Button>
             </div>
           </SwiperSlide>
         </Swiper>
