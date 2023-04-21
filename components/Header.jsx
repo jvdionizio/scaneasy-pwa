@@ -2,9 +2,13 @@ import Image from 'next/image'
 import IconLogo from '../public/IconLogo.svg'
 import { FaSearch, FaBars } from 'react-icons/fa'
 import Menu from './Menu'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { StoreContext } from '@/context/context'
 
 export default function Header(){
+  const {
+    setCartConnect,
+  } = useContext(StoreContext)
   const [isOpen, setIsOpen] = useState(false)
   return (
     <header className="bg-white z-20 fixed left-0 top-0 right-0 mx-auto">
@@ -20,7 +24,12 @@ export default function Header(){
           border-gray-200
         '
       >
-        <Image src={IconLogo} alt="Logo" className='h-9 w-fit'/>
+        <Image
+          src={IconLogo}
+          alt="Logo"
+          className='h-9 w-fit'
+          onClick={() => setCartConnect(true)}
+        />
         <div
           className='
             flex

@@ -31,7 +31,6 @@ export default function ProductOverlay(){
         }
       })
     )
-    console.log("entrou antes do list e tal");
     list && setList(
       list.map((product, i) => {
         if(i === index){
@@ -81,8 +80,6 @@ export default function ProductOverlay(){
       })
     )
   }
-
-  console.log(showProductOverlay.show, showProductOverlay.product, showProductOverlay.productIndex, "entrou nessa porra")
   
   return(
     <div

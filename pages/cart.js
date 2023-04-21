@@ -19,6 +19,7 @@ export default function Cart() {
     cart,
     list,
     setList,
+    setCartConnect,
   } = useContext(StoreContext)
   
   const [localCart, setLocalCart] = useState([])
@@ -291,6 +292,7 @@ export default function Cart() {
                             show: true,
                             type: 'success',
                           })
+                          setCartConnect(false)
                           setTimeout(() => {
                             router.push('/home')
                           }, 2000);
