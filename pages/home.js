@@ -7,9 +7,9 @@ import NavBar from "@/components/NavBar";
 import DraggableCard from "@/components/DraggableCard";
 import AddOverlay from "@/components/AddOverlay";
 import ProductOverlay from "@/components/ProductOverlay";
+import TutorialOverLay from "@/components/TutorialOverlay";
 
 export default function Home({data}) {
-
   return(
     <div className='w-screen h-screen flex flex-col pt-20
       overflow-x-hidden overflow-clip
@@ -43,6 +43,7 @@ export default function Home({data}) {
         <NavBar />
       </div>
       <ProductOverlay />
+      <TutorialOverLay/>
     </div>
   )
 }

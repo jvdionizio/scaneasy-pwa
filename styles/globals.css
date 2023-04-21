@@ -5,3 +5,14 @@
 .swiper-pagination-bullet-active {
      background-color: #1E2358 !important;
 }
+
+.ReactCollapse--collapse {
+    transition: height 500ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+}
+
+#tutorial-overlay .mySwiper{
+    width: 260px;
+    height: 450px;
+    max-width: 260px;
+    max-height: 500px;
+}
