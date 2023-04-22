@@ -80,19 +80,39 @@ export default function NavBar({}) {
             </IconNavBar>
             {
               navBarNotification.list.show === true && (
-                <div
-                  className={
-                    clsx( 
-                      'absolute',
-                      '-top-[5px]',
-                      '-right-[5px]',
-                      'w-3',
-                      'h-3',
-                      'rounded-full',
-                      'bg-red-500',
-                    )
-                  }
-                />
+                <span
+                  className="
+                    absolute
+                    -top-[4px]
+                    -right-[6px]
+                    w-3
+                    h-3
+                    flex
+                  "
+                >
+                  <span
+                    className="
+                      absolute
+                      animate-ping
+                      inline-flex
+                      w-full
+                      h-full
+                      bg-red-500
+                      rounded-full
+                      opacity-75
+                    "
+                  />
+                  <span
+                    className="
+                      relative                    
+                      w-3
+                      h-3
+                      rounded-full
+                      bg-red-500
+                      inline-flex'
+                    "
+                  />
+                </span>
               )
             }
             <TextNavBar
@@ -129,19 +149,39 @@ export default function NavBar({}) {
             </IconNavBar>
             {
               navBarNotification.cart.show === true && (
-                <div
-                  className={
-                    clsx( 
-                      'absolute',
-                      '-top-1',
-                      'right-2',
-                      'w-3',
-                      'h-3',
-                      'rounded-full',
-                      'bg-red-500',
-                    )
-                  }
-                />
+                <span
+                  className="
+                    absolute
+                    -top-[5px]
+                    right-2
+                    w-3
+                    h-3
+                    flex
+                  "
+                >
+                  <span
+                    className="
+                      absolute
+                      animate-ping
+                      inline-flex
+                      w-full
+                      h-full
+                      bg-red-500
+                      rounded-full
+                      opacity-75
+                    "
+                  />
+                  <span
+                    className="
+                      relative                    
+                      w-3
+                      h-3
+                      rounded-full
+                      bg-red-500
+                      inline-flex'
+                    "
+                  />
+                </span>
               )
             }
             <TextNavBar
