@@ -156,7 +156,7 @@ export default function NavBar({}) {
           </div>
         </Link>
         <Link
-          href="/sale"
+          href="/"
         >
           <div
             className={buttonRootStyle}
