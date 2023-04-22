@@ -8,7 +8,7 @@ import Button from '@/components/styles/Button'
 
 export default function Welcome() {
   return(
-    <div className='w-screen h-screen flex flex-col items-center justify-center gap-9 py-4'>
+    <div className='w-screen h-screen flex flex-col items-center justify-center gap-9 py-4 overflow-hidden'>
       <Head>
         <title>Scan Easy - Bem vindo</title>
         <link rel="manifest" href="/manifest.json" />

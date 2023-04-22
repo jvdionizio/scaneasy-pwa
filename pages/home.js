@@ -12,7 +12,7 @@ import TutorialOverLay from "@/components/TutorialOverlay";
 export default function Home({data}) {
   return(
     <div className='w-screen h-screen flex flex-col pt-20
-      overflow-x-hidden overflow-clip
+      overflow-hidden
     '>
       <Head>
         <title>Scan Easy - Bem vindo</title>
