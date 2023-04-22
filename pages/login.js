@@ -44,6 +44,39 @@ export default function Login() {
     <div className='w-screen h-screen flex flex-col items-center px-8 gap-32 py-6'>
       <Head>
         <title>Scan Easy - Login</title>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="description" content="A revolução do varejo"/>
+        <link rel="icon/png" href="/favicon.png"/>
+        <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="theme-color" content="#1E2358"/>
+        <link rel="apple-touch-icon" href="/favicon.png"></link>
+        <meta name="apple-mobile-web-app-status-bar-style" content="#1E2358"/>
+        <meta name="msapplication-navbutton-color" content="#1E2358"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-title" content="Scan Easy"/>
+        <meta name="application-name" content="Scan Easy"/>
+        <meta name="msapplication-TileColor" content="#1E2358"/>
+        <meta name="msapplication-TileImage" content="/favicon.png"/>
+        <meta name="msapplication-config" content="/browserconfig.xml"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Scan Easy - Bem vindo"/>
+        <meta property="og:description" content="A Revolução do Varejo"/>
+
+        <meta property="og:image" content="/ogImage.png"/>
+        <meta property="og:image:width" content="1200"/>
+        <meta property="og:image:height" content="630"/>
+        <meta property="og:image:alt" content="Scan Easy Logo"/>
+
+        <meta property="og:image" content="/waImage.png"/>
+        <meta property="og:image:width" content="412"/>
+        <meta property="og:image:height" content="412"/>
+        <meta property="og:image:alt" content="Scan Easy Logo"/>
+
+        <meta property="og:url" content="https://scaneasy-pwa.vercel.app/"/>
+        <meta property="og:site_name" content="Scan Easy"/>
+        <meta property="og:locale" content="pt_BR"/>
       </Head>
       <Link href='/'
         className="self-start"
