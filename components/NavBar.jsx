@@ -44,11 +44,9 @@ export default function NavBar({}) {
           )
         }
       >
-        <Link
-          href="/home"
-        >
           <div
             className={buttonRootStyle}
+            onClick={() => router.push('/home')}
           >
             <IconNavBar
               selected={pathname === "/home"}
@@ -61,20 +59,19 @@ export default function NavBar({}) {
               Home
             </TextNavBar>
           </div>
-        </Link>
-        <Link
-          href="/list"
-        >
           <div
             className={buttonRootStyle}
-            onClick={() => setNavBarNotification(
+            onClick={() => {
+              setNavBarNotification(
                 {
                   ...navBarNotification,
                   list: {
                     show: false
                   }
                 }
-              )}
+              )
+              router.push('/list')
+            }}
           >
             <IconNavBar
               selected={pathname === "/list"}
@@ -104,9 +101,7 @@ export default function NavBar({}) {
               Lista
             </TextNavBar>
           </div>
-        </Link>
-        <Link
-          href="/cart"
+        <div
           className={
             clsx(
               {
@@ -114,6 +109,7 @@ export default function NavBar({}) {
               }
             )
           }
+          onClick={() => router.push('/cart')}
         >
           <div
             className={buttonRootStyle}
@@ -154,10 +150,7 @@ export default function NavBar({}) {
               Carrinho
             </TextNavBar>
           </div>
-        </Link>
-        <Link
-          href="/"
-        >
+        </div>
           <div
             className={buttonRootStyle}
           >
@@ -172,7 +165,6 @@ export default function NavBar({}) {
               descontos
             </TextNavBar>
           </div>
-        </Link>
       </div>
     </div>
   )
