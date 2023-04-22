@@ -1,21 +1,37 @@
 import clsx from "clsx";
 import { useContext, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { A11y, EffectCards } from 'swiper';
+import { A11y, EffectCards, Autoplay } from 'swiper';
 import "swiper/css";
 import "swiper/css/effect-cards";
 import { FaBluetoothB, FaListAlt, FaShoppingCart, FaTabletAlt, FaTimes } from "react-icons/fa";
 import Heading from "./styles/Heading";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import Button from "./styles/Button";
 import { StoreContext } from "@/context/context";
+import { ArrowRight } from "phosphor-react";
 
 export default function TutorialOverLay() {
 
   const [show, setShow] = useState(false);
 
   const {accessManager, setAccessManager} = useContext(StoreContext);
+
+  const [bounce, setBounce] = useState(true);
+
+  useEffect(() => {
+    if(bounce){
+      setTimeout(() => {
+        setBounce(false)
+      }, 800)
+    } else {
+      setTimeout(() => {
+        setBounce(true)
+      }, 500)
+    }
+  },[
+    bounce
+  ])
 
   useEffect(() => {
     if(accessManager === 0){
@@ -58,7 +74,12 @@ export default function TutorialOverLay() {
         <Swiper
           effect={"cards"}
           grabCursor={true}
-          modules={[EffectCards, A11y]}
+          centeredSlides={true}
+          autoplay={{
+            delay: 7000,
+            disableOnInteraction: false,
+          }} 
+          modules={[EffectCards, A11y, Autoplay]}
           className="mySwiper"
         >
           <SwiperSlide>
@@ -96,6 +117,21 @@ export default function TutorialOverLay() {
                   Você pode monta-lá antes de ir ao mercado
                 </Heading>
               </div>
+              <ArrowRight
+                className={
+                  clsx(
+                    'text-blue-700',
+                    'transition-all',
+                    'duration-500',
+                    'transform',
+                    'ease-in-out',
+                    {
+                      'mr-3': bounce,
+                    }
+                  )
+                }
+                size={40}
+              />
             </div>
           </SwiperSlide>
           <SwiperSlide>
@@ -154,6 +190,21 @@ export default function TutorialOverLay() {
                   se conecte ao carrinho, pelo bluetooth.
                 </Heading>
               </div>
+              <ArrowRight
+                className={
+                  clsx(
+                    'text-blue-700',
+                    'transition-all',
+                    'duration-500',
+                    'transform',
+                    'ease-in-out',
+                    {
+                      'mr-3': bounce,
+                    }
+                  )
+                }
+                size={40}
+              />
             </div>
           </SwiperSlide>
           <SwiperSlide>
