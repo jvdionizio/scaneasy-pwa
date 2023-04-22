@@ -17,7 +17,7 @@ export default function Header(){
           flex
           items-center
           justify-center
-          gap-6
+          gap-4
           w-full
           py-4
           border-b-[2px]
