@@ -5,6 +5,7 @@ import { Minus, Plus } from "phosphor-react";
 import { useContext } from "react";
 import { FaTimes } from "react-icons/fa";
 import Text from "./styles/Text";
+import Button from "./styles/Button";
 
 export default function ProductOverlay(){
   const {
@@ -210,6 +211,23 @@ export default function ProductOverlay(){
                 }
               />
             </div>
+            <Button
+              textSize="sm"
+              bgColor="green"
+            >
+              <div
+                onClick={
+                  () => {
+                    setShowProductOverlay({
+                      ... showProductOverlay,
+                      show: false,
+                    })
+                  }
+                }
+              >
+                Confirmar
+              </div>
+            </Button>
           </div>
         )
       }

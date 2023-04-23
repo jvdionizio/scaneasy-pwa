@@ -4,28 +4,22 @@ const max = 25;
 export const productsObj = {
   products: [
     {
-      name: "Arroz",
-      price: 5.99,
-      description: "Arroz tipo 1, pacote com 1kg",
-      image: "/products/arroz.webp",
+      name: "Kit Kat",
+      price: 3.49,
+      description: "Chocolate Kit Kat, pacote com 4 barras de 40g",
+      image: "/products/kitkat.webp",
       sale: Math.floor(Math.random() * (max - min) + min),
-      nutritionalTable: {
-        energyValue: "150 kcal",
-        protein: "3g",
-        carbs: "30g",
-        totalFat: "1g"
-      },
       category: "alimentos",
-      measurement: "1kg"
+      measurement: "1 unid."
     },
     {
-      name: "Sabão em pó",
-      price: 14.99,
-      description: "Sabão em pó Tixan Ypê, pacote com 2kg",
-      image: "/products/sabao_em_po.jpg",
+      name: "Bolacha Oreo",
+      price: 4.49,
+      description: "Bolacha Oreo, pacote com 90g",
+      image: "/products/oreo.jpg",
       sale: Math.floor(Math.random() * (max - min) + min),
-      category: "limpeza",
-      measurement: "2kg"
+      category: "alimentos",
+      measurement: "1 unid."
     },
     {
       name: "Leite em pó",
